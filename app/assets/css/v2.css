@@ -1,0 +1,294 @@
+/* ========= v2 additions: interactive services, full-bleed work strips, gradient cursor ========= */
+
+/* ---------- Gradient cursor ---------- */
+.gradient-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle,
+    color-mix(in oklch, var(--accent) 70%, transparent) 0%,
+    color-mix(in oklch, var(--accent) 35%, transparent) 22%,
+    transparent 55%);
+  filter: blur(60px);
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  will-change: transform;
+  transition: opacity 0.4s ease;
+}
+[data-theme="dark"] .gradient-cursor {
+  opacity: 0.4;
+  mix-blend-mode: screen;
+}
+[data-accent="mono"] .gradient-cursor { display: none; }
+
+@media (hover: none), (pointer: coarse) {
+  .gradient-cursor { display: none; }
+}
+
+/* Make sure content sits above cursor layer */
+.topbar, .hero, .marquee, .services-section, .work-section, #team, .contact, .footer {
+  position: relative;
+  z-index: 2;
+}
+/* but the cursor should show through the white bg of sections — it uses mix-blend-mode, so that works */
+
+/* ---------- Interactive services ---------- */
+.services-interactive {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: start;
+  border-top: 1px solid var(--rule);
+}
+@media (max-width: 900px) {
+  .services-interactive { grid-template-columns: 1fr; gap: 32px; }
+}
+
+.services-interactive .services-list {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--rule);
+  padding-right: 48px;
+}
+@media (max-width: 900px) {
+  .services-interactive .services-list { border-right: none; padding-right: 0; }
+}
+
+.services-interactive .service-row {
+  display: grid;
+  grid-template-columns: 48px 1fr 28px;
+  gap: 20px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: left;
+  color: var(--fg);
+  width: 100%;
+  transition: padding 0.3s ease, color 0.3s ease;
+}
+.services-interactive .service-row:hover { padding-left: 16px; }
+.services-interactive .service-row .num {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--fg-faint);
+  font-weight: 500;
+}
+.services-interactive .service-row .title {
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--fg-muted);
+  transition: color 0.3s ease;
+}
+.services-interactive .service-row.active .title { color: var(--fg); }
+.services-interactive .service-row.active .num { color: var(--accent-ink); }
+.services-interactive .service-row .arrow {
+  font-size: 14px;
+  color: var(--fg-faint);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.services-interactive .service-row.active .arrow {
+  color: var(--accent-ink);
+  transform: none;
+}
+.services-interactive .service-row:hover .arrow { color: var(--fg); transform: translateX(4px); }
+.services-interactive .service-row.active:hover .arrow { transform: none; color: var(--accent-ink); }
+
+/* detail panel */
+.services-detail {
+  position: sticky;
+  top: 96px;
+  padding: 32px 0 0;
+  animation: fadeInUp 0.35s cubic-bezier(0.2,0.8,0.2,1);
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.services-detail .detail-num {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.services-detail .detail-meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.services-detail .detail-desc {
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--fg);
+  margin-bottom: 40px;
+  max-width: 38ch;
+}
+.services-detail .detail-projects-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin-bottom: 16px;
+}
+.services-detail .detail-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.services-detail .detail-project {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 500;
+  transition: padding 0.2s ease, color 0.2s ease;
+}
+.services-detail .detail-project:hover { padding-left: 8px; color: var(--accent-ink); }
+.services-detail .detail-project .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+}
+.services-detail .detail-project .yr {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--fg-faint);
+  font-weight: 500;
+}
+
+/* ---------- Full-bleed work strips ---------- */
+.work-section { padding: 120px 0 0; border-top: 1px solid var(--rule); }
+.work-grid {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding-bottom: 120px;
+}
+.project {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+.project:nth-child(even) .project-media { order: 2; }
+
+.project-media {
+  grid-column: span 7;
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--bg-alt);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.project-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.8s cubic-bezier(0.2,0.8,0.2,1);
+}
+.project:hover .project-media img { transform: scale(1.04); }
+.project-media .accent-dot {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--project-accent, var(--fg));
+  z-index: 1;
+}
+.project-media .corner {
+  position: absolute;
+  bottom: 16px; right: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  z-index: 1;
+}
+
+.project-body { grid-column: span 5; padding-top: 8px; }
+.project:nth-child(even) .project-body { grid-column: 1 / span 5; }
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.project-client {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 10px;
+}
+.project-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 2.6vw, 40px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.project-body > p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+}
+.project-stack {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.project-stack .tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  color: var(--fg-muted);
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .project { grid-template-columns: 1fr; }
+  .project-media,
+  .project-body { grid-column: 1 / -1; }
+  .project:nth-child(even) .project-media { order: 0; }
+  .project:nth-child(even) .project-body { grid-column: 1 / -1; }
+}

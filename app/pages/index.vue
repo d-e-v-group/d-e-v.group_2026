@@ -1,0 +1,38 @@
+<script setup>
+const tweaks = useTweaks()
+const editMode = ref(false)
+
+useHead({
+  htmlAttrs: {
+    'data-theme': computed(() => tweaks.value.theme),
+    'data-accent': computed(() => tweaks.value.accent),
+  },
+})
+
+onMounted(() => {
+  const handler = (e) => {
+    if (!e.data?.type) return
+    if (e.data.type === '__activate_edit_mode') editMode.value = true
+    else if (e.data.type === '__deactivate_edit_mode') editMode.value = false
+  }
+  window.addEventListener('message', handler)
+  window.parent.postMessage({ type: '__edit_mode_available' }, '*')
+  onUnmounted(() => window.removeEventListener('message', handler))
+})
+
+useReveal()
+</script>
+
+<template>
+  <GradientCursor v-if="tweaks.cursor !== false" />
+  <AppTopbar />
+  <div class="page">
+    <Hero />
+  </div>
+  <AppMarquee />
+  <SectionServices />
+  <SectionWork />
+  <SectionTeam />
+  <AppFooter />
+  <Tweaks :edit-mode="editMode" />
+</template>
