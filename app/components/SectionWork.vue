@@ -18,9 +18,8 @@ import content from '~/assets/js/content.js'
           :id="`project-${p.id}`"
         >
           <div class="project-media">
-            <img :src="p.image" :alt="p.title">
-            <div class="accent-dot" />
-            <div class="corner">{{ p.year }}</div>
+            <video v-if="p.video" :src="p.video" autoplay muted loop playsinline />
+            <img v-else :src="p.image" :alt="p.title">
           </div>
           <div class="project-body">
             <div class="project-meta">

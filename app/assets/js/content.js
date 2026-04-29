@@ -68,6 +68,7 @@ export default {
       id: "autobio",
       client: "AutoBio",
       title: "Physical-to-Digital Identity Platform",
+      video: "/videos/screencap_AUTOBIO.mp4",
       image: "https://wp.devgru.net/wp-content/uploads/2022/10/autobio.jpg",
       year: "2024",
       role: "Architecture • Build",
@@ -84,6 +85,7 @@ export default {
       id: "susan-david",
       client: "Susan David",
       title: "Digital Platform & Certification Ecosystem",
+      video: "/videos/screencap_SUSAN-DAVID.mp4",
       image:
         "https://wp.devgru.net/wp-content/uploads/2022/10/Screen-Shot-2022-10-27-at-4.18.02-PM.jpg",
       year: "2023",
@@ -118,6 +120,7 @@ export default {
     {
       id: "bobby-flay",
       client: "Bobby Flay",
+      video: "/videos/screencap_BOBBY-FLAY.mp4",
       image:
         "https://wp.devgru.net/wp-content/uploads/2022/10/Screen-Shot-2023-01-18-at-8.01.59-PM.jpg",
       title: "Content Platform",
