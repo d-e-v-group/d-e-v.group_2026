@@ -14,14 +14,13 @@ const linkedProjects = computed(() =>
   <section class="section services-section" id="services">
     <div class="page">
       <div class="section-head">
-        <div class="section-num">Services</div>
         <h2 class="section-title">What we do.</h2>
       </div>
       <div class="services-interactive">
         <div class="services-list">
           <button v-for="(s, i) in content.services" :key="s.n" :class="['service-row', { active: activeIdx === i }]"
             @mouseenter="activeIdx = i" @focus="activeIdx = i">
-            <div class="num">{{ s.n }}</div>
+            <!-- <div class="num"></div> -->
             <div class="title">{{ s.title }}</div>
             <div class="arrow">{{ activeIdx === i ? '●' : '→' }}</div>
           </button>

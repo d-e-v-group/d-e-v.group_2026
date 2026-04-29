@@ -9,7 +9,7 @@ export default {
       "Development Group is a battle-tested affiliation of technologists dedicated to navigating our partners and clients smoothly through the digital seas.",
     audience: ["Branding studios", "Creative agencies", "Strategy firms"],
     year: "Est. 2014",
-    location: "Brooklyn • Los Angeles • Remote",
+    location: "Los Angeles • St. Louis • Portland, OR • Remote",
     email: "hello@developmentgroup.co",
   },
   services: [

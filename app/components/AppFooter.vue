@@ -38,12 +38,6 @@ const doy = computed(() => Math.floor(
         hello@d-e-v.group
         <span class="footer-email-arrow" aria-hidden="true">↗</span>
       </a>
-      <div class="footer-hero-meta">
-        <div class="fhm-label">Send brief to</div>
-        <div class="fhm-value">{{ content.brand.email }}</div>
-        <div class="fhm-label">Response</div>
-        <div class="fhm-value">≤ 2 business days</div>
-      </div>
     </div>
 
 
@@ -54,7 +48,8 @@ const doy = computed(() => Math.floor(
       </div> -->
       <div class="fm-row  footer-metadata">
         <div class="fm-row"><span class="fm-k">Development Group</span><span class="fm-v">Est. 2014</span></div>
-        <div class="fm-row"><span class="fm-k">Brooklyn · Los Angeles · Remote</span><span class="fm-v">© {{ yyyy
+        <div class="fm-row"><span class="fm-k">Los Angeles • St. Louis • Portland, OR • Worldwide</span><span
+            class="fm-v">© {{ yyyy
             }}</span>
         </div>
       </div>

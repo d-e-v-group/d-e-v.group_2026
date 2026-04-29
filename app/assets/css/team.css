@@ -19,8 +19,7 @@
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--serif);
-  font-style: italic;
-  font-weight: 300;
+  font-weight: 100;
   font-size: 120px;
   color: var(--fg-faint);
   background: radial-gradient(circle at 50% 40%, var(--bg-alt) 0%, var(--bg) 100%);
@@ -32,8 +31,7 @@
 .team-meta .name {
   font-family: var(--serif);
   font-size: 22px;
-  font-weight: 400;
-  font-style: italic;
+  font-weight: 100;
   letter-spacing: -0.01em;
 }
 .team-meta .role {

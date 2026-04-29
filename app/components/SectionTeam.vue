@@ -6,7 +6,6 @@ import content from '~/assets/js/content.js'
   <section class="section" id="team">
     <div class="page">
       <div class="section-head">
-        <div class="section-num">The Affiliation</div>
         <h2 class="section-title">Who we are.</h2>
       </div>
       <div class="team-grid">

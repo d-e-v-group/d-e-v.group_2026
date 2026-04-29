@@ -39,7 +39,7 @@
 .footer-email {
   font-family: var(--serif);
   font-size: clamp(48px, 10vw, 120px);
-  font-weight: 400;
+  font-weight: 100;
   letter-spacing: -0.03em;
   line-height: 0.9;
   color: var(--fg);
@@ -54,15 +54,6 @@
 }
 .footer-email:hover .footer-email-arrow { transform: translate(4px, -4px); }
 
-.footer-hero-meta {
-  display: grid; grid-template-columns: auto 1fr;
-  gap: 4px 20px; align-items: baseline; padding-bottom: 12px;
-}
-.fhm-label {
-  font-size: 10px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--fg-faint); font-weight: 500;
-}
-.fhm-value { font-size: 13px; letter-spacing: 0.02em; color: var(--fg); font-weight: 500; }
 
 .footer-metadata {
   padding: 32px 0 0;
