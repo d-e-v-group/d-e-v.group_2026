@@ -1,0 +1,37 @@
+/* ---------- Contact ---------- */
+.contact {
+  padding: 160px 0 120px;
+  border-top: 1px solid var(--rule);
+  overflow: hidden;
+}
+.contact-label {
+  font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-ink); margin-bottom: 48px;
+}
+.contact-email {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(56px, 11vw, 180px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  color: var(--fg);
+  transition: color 0.3s ease;
+}
+.contact-email:hover { color: var(--fg-muted); }
+.contact-email .arrow {
+  font-style: normal;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1);
+}
+.contact-email:hover .arrow { transform: translate(16px, -16px); }
+.contact-row {
+  margin-top: 80px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px; padding-top: 24px; border-top: 1px solid var(--rule);
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted);
+}
+.contact-row .k { display: block; color: var(--fg-faint); font-size: 9px; margin-bottom: 6px; }
+@media (max-width: 768px) { .contact-row { grid-template-columns: repeat(2, 1fr); } }

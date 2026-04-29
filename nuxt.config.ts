@@ -4,8 +4,10 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/styles.css',
     '~/assets/css/hero.css',
-    '~/assets/css/sections.css',
-    '~/assets/css/v2.css',
-    '~/assets/css/v3.css',
+    '~/assets/css/services.css',
+    '~/assets/css/work.css',
+    '~/assets/css/team.css',
+    '~/assets/css/contact.css',
+    '~/assets/css/footer.css',
   ],
 })

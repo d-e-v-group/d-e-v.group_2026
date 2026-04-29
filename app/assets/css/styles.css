@@ -20,33 +20,61 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'ITC Garamond Std';
+  src: url('/fonts/ITCGaramondStd-LtCond.woff2') format('woff2'),
+       url('/fonts/ITCGaramondStd-LtCond.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ITC Garamond Std';
+  src: url('/fonts/ITCGaramondStd-LtCondIta.woff2') format('woff2'),
+       url('/fonts/ITCGaramondStd-LtCondIta.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ITC Garamond Std';
+  src: url('/fonts/ITCGaramondStd-BkCond.woff2') format('woff2'),
+       url('/fonts/ITCGaramondStd-BkCond.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ITC Garamond Std';
+  src: url('/fonts/ITCGaramondStd-BkCondIta.woff2') format('woff2'),
+       url('/fonts/ITCGaramondStd-BkCondIta.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 
 /* ---------- Tokens ---------- */
 :root {
-  /* neutral B&W palette (default) */
   --bg: #ffffff;
   --bg-alt: #f4f4f2;
   --fg: #0a0a0a;
   --fg-muted: #555555;
   --fg-faint: #a8a8a6;
   --rule: #e3e3e0;
-  --grid-line: rgba(10,10,10,0.05);
-  /* accent (overridable via [data-accent]) */
-  --accent: oklch(0.74 0.1 180);        /* teal default */
-  --accent-soft: oklch(0.93 0.06 180);  /* tint */
-  --accent-ink: oklch(0.25 0.06 180);   /* deep */
+  --accent: oklch(0.74 0.1 180);
+  --accent-soft: oklch(0.93 0.06 180);
+  --accent-ink: oklch(0.25 0.06 180);
   --font: 'ABC Diatype', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --serif: var(--font);
+  --serif: 'ITC Garamond Std', Georgia, serif;
   --sans: var(--font);
   --mono: var(--font);
 }
 
-/* accent palette presets */
-[data-accent="teal"]    { --accent: oklch(0.74 0.1 180); --accent-soft: oklch(0.93 0.06 180); --accent-ink: oklch(0.3 0.08 180); }
-[data-accent="electric"]{ --accent: oklch(0.72 0.18 140); --accent-soft: oklch(0.94 0.07 140); --accent-ink: oklch(0.3 0.1 140); }
-[data-accent="cobalt"]  { --accent: oklch(0.55 0.19 260); --accent-soft: oklch(0.93 0.05 260); --accent-ink: oklch(0.3 0.15 260); }
-[data-accent="tomato"]  { --accent: oklch(0.65 0.2 25);  --accent-soft: oklch(0.94 0.05 25);  --accent-ink: oklch(0.35 0.14 25); }
-[data-accent="mono"]    { --accent: #0a0a0a;             --accent-soft: #f0f0ee;             --accent-ink: #0a0a0a; }
+[data-accent="teal"]     { --accent: oklch(0.74 0.1 180);  --accent-soft: oklch(0.93 0.06 180); --accent-ink: oklch(0.3 0.08 180); }
+[data-accent="electric"] { --accent: oklch(0.72 0.18 140); --accent-soft: oklch(0.94 0.07 140); --accent-ink: oklch(0.3 0.1 140); }
+[data-accent="cobalt"]   { --accent: oklch(0.55 0.19 260); --accent-soft: oklch(0.93 0.05 260); --accent-ink: oklch(0.3 0.15 260); }
+[data-accent="tomato"]   { --accent: oklch(0.65 0.2 25);   --accent-soft: oklch(0.94 0.05 25);  --accent-ink: oklch(0.35 0.14 25); }
+[data-accent="mono"]     { --accent: #0a0a0a;              --accent-soft: #f0f0ee;              --accent-ink: #0a0a0a; }
 
 [data-theme="dark"] {
   --bg: #0a0a0a;
@@ -55,15 +83,15 @@
   --fg-muted: #9a9a97;
   --fg-faint: #444442;
   --rule: #242422;
-  --grid-line: rgba(245,245,243,0.06);
 }
-[data-theme="dark"][data-accent="teal"]    { --accent-soft: oklch(0.3 0.05 180); --accent-ink: oklch(0.85 0.08 180); }
-[data-theme="dark"][data-accent="electric"]{ --accent-soft: oklch(0.28 0.06 140); --accent-ink: oklch(0.85 0.1 140); }
-[data-theme="dark"][data-accent="cobalt"]  { --accent-soft: oklch(0.28 0.08 260); --accent-ink: oklch(0.85 0.1 260); }
-[data-theme="dark"][data-accent="tomato"]  { --accent-soft: oklch(0.28 0.07 25);  --accent-ink: oklch(0.85 0.08 25); }
-[data-theme="dark"][data-accent="mono"]    { --accent: #f5f5f3; --accent-soft: #1a1a1a; --accent-ink: #f5f5f3; }
+[data-theme="dark"][data-accent="teal"]     { --accent-soft: oklch(0.3 0.05 180);  --accent-ink: oklch(0.85 0.08 180); }
+[data-theme="dark"][data-accent="electric"] { --accent-soft: oklch(0.28 0.06 140); --accent-ink: oklch(0.85 0.1 140); }
+[data-theme="dark"][data-accent="cobalt"]   { --accent-soft: oklch(0.28 0.08 260); --accent-ink: oklch(0.85 0.1 260); }
+[data-theme="dark"][data-accent="tomato"]   { --accent-soft: oklch(0.28 0.07 25);  --accent-ink: oklch(0.85 0.08 25); }
+[data-theme="dark"][data-accent="mono"]     { --accent: #f5f5f3; --accent-soft: #1a1a1a; --accent-ink: #f5f5f3; }
 
-* { box-sizing: border-box; margin: 0; padding: 0; font-style: normal !important; }
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
   background: var(--bg);
   color: var(--fg);
@@ -76,16 +104,17 @@ body { overflow-x: hidden; }
 a { color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* Force Diatype everywhere, regardless of any component-level override */
-*, *::before, *::after {
-  font-family: var(--font) !important;
-}
-
 /* ---------- Layout ---------- */
 .page { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
 @media (max-width: 768px) { .page { padding: 0 24px; } }
 
-/* ---------- Top Bar ---------- */
+/* Sit above gradient cursor (z-index: 1) */
+.topbar, .hero, .marquee, .services-section, .work-section, #team, .contact, .footer-v2 {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Topbar ---------- */
 .topbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   padding: 20px 48px;
@@ -100,8 +129,8 @@ img { max-width: 100%; display: block; }
 }
 .topbar > * { pointer-events: auto; }
 .topbar .wordmark {
-  font-weight: 500;
   font-size: 16px;
+  font-weight: 500;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   line-height: 1;
@@ -111,78 +140,65 @@ img { max-width: 100%; display: block; }
 .topbar nav a:hover { opacity: 1; }
 .topbar .coords { font-variant-numeric: tabular-nums; opacity: 0.7; }
 
-/* ---------- Eyebrow ---------- */
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-  font-weight: 500;
-}
-
-/* ---------- Section header ---------- */
-.section { padding: 120px 0; border-top: 1px solid var(--rule); position: relative; }
+/* ---------- Section scaffold ---------- */
+.section { padding: 120px 0; border-top: 1px solid var(--rule); }
 .section-head {
   display: grid; grid-template-columns: 1fr 3fr;
   gap: 32px; margin-bottom: 80px; align-items: baseline;
+}
+.section-num {
+  font-size: 12px; letter-spacing: 0.12em; font-weight: 500;
+  text-transform: uppercase; color: var(--accent-ink);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
 }
 @media (max-width: 768px) {
   .section-head { grid-template-columns: 1fr; }
   .section { padding: 80px 0; }
 }
-.section-num {
-  font-size: 12px; letter-spacing: 0.12em; color: var(--fg-muted); font-weight: 500;
-  text-transform: uppercase;
-}
-.section-title {
-  font-size: clamp(48px, 7vw, 96px);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-}
 
-/* ---------- Accent applications ---------- */
-/* Tasteful: used only on specific spots — NOT on body text or big headlines */
-.accent-text { color: var(--accent-ink); }
+/* ---------- Accent ---------- */
 ::selection { background: var(--accent); color: var(--fg); }
+.accent-text { color: var(--accent-ink); }
+.accent-dot { background: var(--accent); }
 
-/* Gradient blob in kinetic hero uses accent */
-.hero--expressive .gradient-blob {
-  background: radial-gradient(circle at 30% 30%, var(--accent) 0%, var(--accent) 35%, transparent 70%) !important;
-  opacity: 0.35 !important;
+/* ---------- Gradient cursor ---------- */
+.gradient-cursor {
+  position: fixed; top: 0; left: 0;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle,
+    color-mix(in oklch, var(--accent) 70%, transparent) 0%,
+    color-mix(in oklch, var(--accent) 35%, transparent) 22%,
+    transparent 55%);
+  filter: blur(60px);
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  will-change: transform;
+  transition: opacity 0.4s ease;
 }
-[data-theme="dark"] .hero--expressive .gradient-blob { opacity: 0.28 !important; }
+[data-theme="dark"] .gradient-cursor { opacity: 0.4; mix-blend-mode: screen; }
+[data-accent="mono"] .gradient-cursor { display: none; }
+@media (hover: none), (pointer: coarse) { .gradient-cursor { display: none; } }
 
-/* Hero accent word */
-.hero-display .accent { color: var(--accent-ink) !important; }
-
-/* Section numbers (§ 01 / Services) — treated as accent */
-.section-num, .contact-label { color: var(--accent-ink) !important; }
-
-/* Project accent dot */
-.accent-dot { background: var(--accent) !important; }
-
-/* Service row hover: accent tint */
-.service-row:hover { background: var(--accent-soft); }
-.service-row:hover .arrow { color: var(--accent-ink); }
-
-/* Contact email arrow */
-.contact-email .arrow { color: var(--accent-ink); }
-
-/* Topbar coords: subtle accent */
-.topbar .coords { color: #fff; }
-
+/* ---------- Utilities ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2,0.8,0.2,1); }
 .reveal.in { opacity: 1; transform: none; }
-
+.eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); font-weight: 500; }
 .mono { font-weight: 500; letter-spacing: 0.02em; }
 .muted { color: var(--fg-muted); }
 
 /* ---------- Tweaks panel ---------- */
 .tweaks {
   position: fixed; bottom: 24px; right: 24px; z-index: 100;
-  background: var(--bg);
-  border: 1px solid var(--rule);
+  background: var(--bg); border: 1px solid var(--rule);
   padding: 16px 18px; min-width: 260px;
   font-size: 11px; letter-spacing: 0.04em;
   box-shadow: 0 20px 60px rgba(0,0,0,0.12);
