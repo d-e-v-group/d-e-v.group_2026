@@ -109,7 +109,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 768px) { .page { padding: 0 24px; } }
 
 /* Sit above gradient cursor (z-index: 1) */
-.topbar, .hero, .marquee, .services-section, .work-section, #team, .contact, .footer-v2 {
+.topbar, .hero, .services-section, .work-section, #team, .contact, .footer-v2 {
   position: relative;
   z-index: 2;
 }

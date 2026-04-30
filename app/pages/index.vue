@@ -26,10 +26,7 @@ useReveal()
 <template>
   <GradientCursor v-if="tweaks.cursor !== false" />
   <AppTopbar />
-  <div class="page">
-    <Hero />
-  </div>
-  <AppMarquee />
+  <Hero />
   <SectionServices />
   <SectionWork />
   <SectionTeam />

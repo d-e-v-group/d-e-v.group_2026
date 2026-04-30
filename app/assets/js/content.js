@@ -6,7 +6,7 @@ export default {
     pitch:
       "We act as your technical arm — Shopify, headless, complex builds — and stay invisible to your client if needed.",
     longPitch:
-      "Development Group is a battle-tested affiliation of technologists dedicated to navigating our partners and clients smoothly through the digital seas.",
+      "Development Group is an experienced affiliation of creative technologists dedicated to navigating our partners and clients smoothly through the digital seas.",
     audience: ["Branding studios", "Creative agencies", "Strategy firms"],
     year: "Est. 2014",
     location: "Los Angeles • St. Louis • Portland, OR • Remote",
