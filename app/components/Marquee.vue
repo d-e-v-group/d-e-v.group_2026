@@ -6,7 +6,7 @@ const icons = [
   'mailbox', 'mouse', 'peace', 'pencil', 'thumbs-up',
 ]
 
-const items = [...content.clients, ...content.clients]
+const items = [...content.capabilities, ...content.capabilities]
 </script>
 
 <template>

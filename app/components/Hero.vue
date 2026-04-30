@@ -1,12 +1,12 @@
+<script setup>
+import content from '~/assets/js/content.js'
+</script>
+
 <template>
   <section class="hero">
     <div class="hero-grid">
-      <h1 class="hero-display">
-        Technical direction and development for brands and creative teams </h1>
-      <div class="hero-sub">
-        Development Group is an experienced affiliation of creative technologists dedicated to navigating our partners
-        smoothly through the digital seas. Shopify, headless, complex builds.
-      </div>
+      <h1 class="hero-display">{{ content.brand.headline }}</h1>
+      <p class="hero-sub">{{ content.brand.pitch }}</p>
     </div>
     <Marquee />
   </section>
