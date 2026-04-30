@@ -1,6 +1,6 @@
 <template>
   <div class="topbar">
-    <div class="wordmark">Development<br>Group</div>
+    <div class="wordmark">Development Group</div>
     <nav>
       <a href="#services">Services</a>
       <a href="#work">Work</a>
