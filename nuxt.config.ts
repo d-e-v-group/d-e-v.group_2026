@@ -3,11 +3,5 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
     '~/assets/css/styles.css',
-    '~/assets/css/hero.css',
-    '~/assets/css/services.css',
-    '~/assets/css/work.css',
-    '~/assets/css/team.css',
-    '~/assets/css/contact.css',
-    '~/assets/css/footer.css',
   ],
 })
