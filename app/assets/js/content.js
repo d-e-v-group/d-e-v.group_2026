@@ -1,8 +1,10 @@
 export default {
   brand: {
     name: "Development Group",
-    headline: "Technical direction and development for brands and creative teams",
-    pitch: "Development Group is an experienced affiliation of creative technologists dedicated to navigating our partners smoothly through the digital seas. Shopify, headless, complex builds.",
+    headline:
+      "Technical direction and development for brands and creative teams",
+    pitch:
+      "Development Group is an experienced affiliation of creative technologists dedicated to navigating our partners smoothly through the digital seas. Shopify, headless, complex builds.",
     status: "Accepting Q3 2026 projects",
     year: "Est. 2014",
     location: "Los Angeles · St. Louis · Portland, OR · Worldwide",
@@ -11,14 +13,14 @@ export default {
 
   nav: [
     { label: "Services", href: "#services" },
-    { label: "Work",     href: "#work" },
-    { label: "Team",     href: "#team" },
+    { label: "Work", href: "#work" },
+    { label: "Team", href: "#team" },
   ],
 
   sections: {
     services: "What we do.",
-    work:     "What we've built.",
-    team:     "Who we are.",
+    work: "What we've built.",
+    team: "Who we are.",
   },
 
   services: [
@@ -89,7 +91,8 @@ export default {
       client: "Susan David",
       title: "Digital Platform & Certification Ecosystem",
       video: "/videos/screencap_SUSAN-DAVID.mp4",
-      image: "https://wp.devgru.net/wp-content/uploads/2022/10/Screen-Shot-2022-10-27-at-4.18.02-PM.jpg",
+      image:
+        "https://wp.devgru.net/wp-content/uploads/2022/10/Screen-Shot-2022-10-27-at-4.18.02-PM.jpg",
       year: "2023",
       role: "Platform • CRM",
       body: "A unified platform combining content, commerce, and event infrastructure to support a global audience and professional certification programs. The experience enables seamless discovery across a large media library while facilitating registration for both virtual and in-person events. Development Group engineered custom cloud-based logic to intelligently deconstruct group purchases into individual attendee records, ensuring accurate downstream synchronization with HubSpot CRM.",
@@ -106,7 +109,9 @@ export default {
       id: "animal-collective",
       client: "Animal Collective",
       title: "Experimental Web Experiences",
-      image: "https://devgru-bucket.s3.us-west-1.amazonaws.com/devgru-api/2019/03/12203258/animal-collective.jpg",
+      video: "/videos/screencap_ANIMAL-COLLECTIVE.mp4",
+      image:
+        "https://devgru-bucket.s3.us-west-1.amazonaws.com/devgru-api/2019/03/12203258/animal-collective.jpg",
       year: "2022–Ongoing",
       role: "Creative Tech",
       body: "A long-term creative and technical partnership producing immersive web environments that extend the band's sonic identity into the digital space. Each project explores nonlinear interaction, audio-reactive systems, and unconventional navigation paradigms.",
@@ -123,7 +128,8 @@ export default {
       client: "Bobby Flay",
       title: "Content Platform",
       video: "/videos/screencap_BOBBY-FLAY.mp4",
-      image: "https://wp.devgru.net/wp-content/uploads/2022/10/Screen-Shot-2023-01-18-at-8.01.59-PM.jpg",
+      image:
+        "https://wp.devgru.net/wp-content/uploads/2022/10/Screen-Shot-2023-01-18-at-8.01.59-PM.jpg",
       year: "2023",
       role: "CMS • Frontend",
       body: "A centralized digital ecosystem unifying recipes, editorial content, restaurants, and media appearances into a single, highly navigable experience. Designed for clarity, performance, and scale — while maintaining a sense of personality (including a custom fork cursor).",
@@ -134,7 +140,9 @@ export default {
       id: "coachella",
       client: "Coachella",
       title: "High-Scale Festival Platform",
-      image: "https://devgru-bucket.s3.us-west-1.amazonaws.com/devgru-api/2018/10/12222931/screencapture-web-archive-org-web-20160404190113-https-www-coachella-com-2018-06-14-16_37_08.jpg",
+      image:
+        "https://devgru-bucket.s3.us-west-1.amazonaws.com/devgru-api/2018/10/12222931/screencapture-web-archive-org-web-20160404190113-https-www-coachella-com-2018-06-14-16_37_08.jpg",
+      video: "/videos/screencap_COACHELLA.mp4",
       year: "2021–Ongoing",
       role: "Infrastructure • Performance",
       body: "The primary digital platform for one of the world's most recognized music festivals, engineered to perform under extreme traffic conditions while delivering a seamless user experience. In parallel with the native app ecosystem, Development Group implemented cross-platform itinerary functionality, allowing users to create, persist, and share personalized schedules.",
@@ -150,12 +158,18 @@ export default {
 
   team: [
     { name: "Brendan Sheehan", role: "Founder / Developer", initials: "BS" },
-    { name: "Mike Watt",       role: "Operations / Developer", initials: "MW" },
-    { name: "Mike Chopko",     role: "Growth / Developer", initials: "MC" },
+    { name: "Mike Watt", role: "Operations / Developer", initials: "MW" },
+    { name: "Mike Chopko", role: "Growth / Developer", initials: "MC" },
   ],
 
   capabilities: [
-    "HubSpot", "Shopify", "React.js", "Next.js",
-    "AWS", "WordPress", "Nuxt.js", "Vue",
+    "HubSpot",
+    "Shopify",
+    "React.js",
+    "Next.js",
+    "AWS",
+    "WordPress",
+    "Vue.js",
+    "Nuxt.js",
   ],
-}
+};
