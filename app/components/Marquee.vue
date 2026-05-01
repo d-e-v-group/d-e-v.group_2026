@@ -6,7 +6,8 @@ const icons = [
   'mailbox', 'mouse', 'peace', 'pencil', 'thumbs-up',
 ]
 
-const items = [...content.capabilities, ...content.capabilities]
+const shuffled = [...content.capabilities].sort(() => Math.random() - 0.5)
+const items = [...shuffled, ...shuffled]
 </script>
 
 <template>
@@ -61,7 +62,7 @@ const items = [...content.capabilities, ...content.capabilities]
 .marquee-track {
   display: inline-flex;
   align-items: center;
-  animation: marquee 45s linear infinite;
+  animation: marquee 100s linear infinite;
 
   span {
     padding: 0 32px;
