@@ -48,6 +48,8 @@ const items = [...shuffled, ...shuffled]
 }
 
 .marquee {
+  position: relative;
+  z-index: 1;
   overflow: hidden;
   border-top: 1px solid var(--fg);
   border-bottom: 1px solid var(--fg);

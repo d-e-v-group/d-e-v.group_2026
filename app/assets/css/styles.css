@@ -70,6 +70,25 @@
   --mono: var(--font);
 }
 
+
+:root {
+  --bg: #4287f5;
+  --bg-alt: #b342f5;
+  --fg: #fafcff;
+  --fg-muted: #e1e8f2;
+  --fg-faint: #e1e8f2;
+  --rule: #e1e8f2;
+  --accent: oklch(0.74 0.1 180);
+  --accent-soft: oklch(0.93 0.06 180);
+  --accent-ink: oklch(0.25 0.06 180);
+  --font: 'ABC Diatype', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --serif: 'ITC Garamond Std', Georgia, serif;
+  --sans: var(--font);
+  --mono: var(--font);
+}
+  
+
+
 /* Accent presets */
 [data-accent="teal"]     { --accent: oklch(0.74 0.1 180);  --accent-soft: oklch(0.93 0.06 180); --accent-ink: oklch(0.3 0.08 180); }
 [data-accent="electric"] { --accent: oklch(0.72 0.18 140); --accent-soft: oklch(0.94 0.07 140); --accent-ink: oklch(0.3 0.1 140); }

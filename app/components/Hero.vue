@@ -4,6 +4,7 @@ import content from '~/assets/js/content.js'
 
 <template>
   <section class="hero">
+    <HeroPaint />
     <div class="hero-grid">
       <h1 class="hero-display">{{ content.brand.headline }}</h1>
       <p class="hero-sub">{{ content.brand.pitch }}</p>
@@ -15,6 +16,7 @@ import content from '~/assets/js/content.js'
 <style lang="scss">
 /* ---------- Hero ---------- */
 .hero {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,6 +25,8 @@ import content from '~/assets/js/content.js'
 }
 
 .hero-grid {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
