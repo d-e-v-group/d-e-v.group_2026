@@ -30,7 +30,7 @@ import content from '~/assets/js/content.js'
   text-transform: uppercase;
   font-weight: 500;
 
-  > * {
+  >* {
     pointer-events: auto;
   }
 

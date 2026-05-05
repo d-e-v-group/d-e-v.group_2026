@@ -49,10 +49,11 @@ const items = [...shuffled, ...shuffled]
 
 .marquee {
   position: relative;
-  z-index: 1;
+  z-index: 11;
   overflow: hidden;
   border-top: 1px solid var(--fg);
   border-bottom: 1px solid var(--fg);
+  background-color: var(--bg);
   padding: 18px 0;
   white-space: nowrap;
   font-size: 12px;
@@ -81,6 +82,7 @@ const items = [...shuffled, ...shuffled]
   img {
     max-width: none;
     display: block;
+    //filter: brightness(0) invert(1);
   }
 }
 
