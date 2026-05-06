@@ -47,3 +47,32 @@ Global theme state (theme, accent, cursor toggle) is managed by the [app/composa
 ### Fonts
 
 Custom fonts (ABC Diatype, ITC Garamond) are loaded via `@font-face` in `styles.css` from the [assets/fonts/](assets/fonts/) directory. They are not served from a CDN.
+
+### HeroPaint canvas blob presets
+
+[app/components/HeroPaint.vue](app/components/HeroPaint.vue) renders an animated paint blob on a `<canvas>`. Clicking the hero cycles through the `presets` array. Each preset is a plain object with these parameters:
+
+**Blob movement**
+- `lerp` — how quickly the blob follows the cursor (0–1; higher = snappier)
+- `bounceLerp` — same, but used during autonomous bounce mode (lower = floatier)
+- `bounceSpeed` — pixels-per-frame velocity of the autonomous bounce
+
+**Blob shape**
+- `baseRadius` — base radius in pixels before warping or pulsing
+- `radiusPulse` — amplitude of the sine-wave size pulse
+- `pulseSpeed` — period of the size pulse in milliseconds (higher = slower breath)
+- `blobPoints` — number of control points on the blob outline (more = more complex silhouette)
+- `warp1`, `warp2`, `warp3` — amplitude of three independent warp oscillators (fraction of radius; higher = more distorted)
+- `warpSpeed1`, `warpSpeed2`, `warpSpeed3` — period of each warp oscillator in milliseconds (higher = slower)
+
+**Color**
+- `hueSpeed` — degrees of hue shift per frame
+- `hueSpread` — hue difference between the inner and mid gradient stops
+
+**Gradient & opacity**
+- `opacity` — alpha of the inner gradient stop
+- `opacityMid` — alpha of the mid gradient stop (can exceed 1 with `multiply`/`screen` blend modes)
+- `gradientSpread` — radius of the radial gradient as a multiple of `baseRadius` (higher = softer, larger glow)
+
+**Trail**
+- `fadeAlpha` — alpha used to fill the canvas with `--bg` each frame; controls how quickly old paint fades (lower = longer trails)
