@@ -53,11 +53,13 @@ Custom fonts (ABC Diatype, ITC Garamond) are loaded via `@font-face` in `styles.
 [app/components/HeroPaint.vue](app/components/HeroPaint.vue) renders an animated paint blob on a `<canvas>`. Clicking the hero cycles through the `presets` array. Each preset is a plain object with these parameters:
 
 **Blob movement**
+
 - `lerp` — how quickly the blob follows the cursor (0–1; higher = snappier)
 - `bounceLerp` — same, but used during autonomous bounce mode (lower = floatier)
 - `bounceSpeed` — pixels-per-frame velocity of the autonomous bounce
 
 **Blob shape**
+
 - `baseRadius` — base radius in pixels before warping or pulsing
 - `radiusPulse` — amplitude of the sine-wave size pulse
 - `pulseSpeed` — period of the size pulse in milliseconds (higher = slower breath)
@@ -66,13 +68,16 @@ Custom fonts (ABC Diatype, ITC Garamond) are loaded via `@font-face` in `styles.
 - `warpSpeed1`, `warpSpeed2`, `warpSpeed3` — period of each warp oscillator in milliseconds (higher = slower)
 
 **Color**
+
 - `hueSpeed` — degrees of hue shift per frame
 - `hueSpread` — hue difference between the inner and mid gradient stops
 
 **Gradient & opacity**
+
 - `opacity` — alpha of the inner gradient stop
 - `opacityMid` — alpha of the mid gradient stop (can exceed 1 with `multiply`/`screen` blend modes)
 - `gradientSpread` — radius of the radial gradient as a multiple of `baseRadius` (higher = softer, larger glow)
 
 **Trail**
+
 - `fadeAlpha` — alpha used to fill the canvas with `--bg` each frame; controls how quickly old paint fades (lower = longer trails)
