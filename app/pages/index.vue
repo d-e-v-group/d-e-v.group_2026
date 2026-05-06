@@ -10,6 +10,11 @@ useHead({
 })
 
 onMounted(() => {
+  const mq = window.matchMedia('(prefers-color-scheme: dark)')
+  tweaks.value.theme = mq.matches ? 'dark' : 'light'
+  const onSchemeChange = (e) => { tweaks.value.theme = e.matches ? 'dark' : 'light' }
+  mq.addEventListener('change', onSchemeChange)
+
   const handler = (e) => {
     if (!e.data?.type) return
     if (e.data.type === '__activate_edit_mode') editMode.value = true
@@ -17,7 +22,10 @@ onMounted(() => {
   }
   window.addEventListener('message', handler)
   window.parent.postMessage({ type: '__edit_mode_available' }, '*')
-  onUnmounted(() => window.removeEventListener('message', handler))
+  onUnmounted(() => {
+    window.removeEventListener('message', handler)
+    mq.removeEventListener('change', onSchemeChange)
+  })
 })
 
 useReveal()

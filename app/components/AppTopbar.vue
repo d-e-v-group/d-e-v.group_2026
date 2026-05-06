@@ -118,6 +118,8 @@ const navigate = () => {
 @media (max-width: 768px) {
   .topbar {
     padding: 12px 24px;
+    mix-blend-mode: normal;
+    color: var(--fg);
 
     nav {
       display: none;

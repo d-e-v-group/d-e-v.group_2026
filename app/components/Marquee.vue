@@ -82,7 +82,6 @@ const items = [...shuffled, ...shuffled]
   img {
     max-width: none;
     display: block;
-    //filter: brightness(0) invert(1);
   }
 }
 
@@ -130,6 +129,10 @@ const items = [...shuffled, ...shuffled]
 .icon-thumbs-up img {
   width: 24px;
   height: 24px;
+}
+
+[data-theme="dark"] .dot img {
+  filter: brightness(0) invert(1);
 }
 
 @keyframes marquee {
