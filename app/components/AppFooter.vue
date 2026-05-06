@@ -79,8 +79,15 @@ const yyyy = computed(() => now.value.getUTCFullYear())
 }
 
 @keyframes availPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-  50%       { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
 }
 
 .avail-text {
@@ -114,9 +121,8 @@ const yyyy = computed(() => now.value.getUTCFullYear())
 }
 
 .footer-email {
-  font-family: var(--serif);
-  font-size: clamp(48px, 10vw, 120px);
-  font-weight: 400;
+  font-size: clamp(12x, 10vw, 50px);
+  font-weight: 100;
   letter-spacing: -0.03em;
   line-height: 0.9;
   color: var(--fg);

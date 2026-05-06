@@ -1,5 +1,27 @@
 <script setup>
 import content from '~/assets/js/content.js'
+
+const SECTIONS = [null, '#services', '#work', '#team', '.footer-v2']
+const sectionIndex = ref(0)
+const direction = ref('down')
+
+const navigate = () => {
+  if (direction.value === 'down') {
+    sectionIndex.value = Math.min(sectionIndex.value + 1, SECTIONS.length - 1)
+  } else {
+    sectionIndex.value = Math.max(sectionIndex.value - 1, 0)
+  }
+
+  const idx = sectionIndex.value
+  if (idx === 0) {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } else {
+    document.querySelector(SECTIONS[idx])?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  if (sectionIndex.value === SECTIONS.length - 1) direction.value = 'up'
+  else if (sectionIndex.value === 0) direction.value = 'down'
+}
 </script>
 
 <template>
@@ -8,6 +30,9 @@ import content from '~/assets/js/content.js'
     <nav>
       <a v-for="item in content.nav" :key="item.href" :href="item.href">{{ item.label }}</a>
     </nav>
+    <button class="nav-arrow" @click="navigate" :aria-label="direction === 'down' ? 'Next section' : 'Previous section'">
+      <span class="nav-arrow-icon" :class="direction">↓</span>
+    </button>
   </div>
 </template>
 
@@ -59,6 +84,48 @@ import content from '~/assets/js/content.js'
   .coords {
     font-variant-numeric: tabular-nums;
     opacity: 0.7;
+  }
+}
+
+.nav-arrow {
+  display: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+
+  &:hover .nav-arrow-icon {
+    transform: translate(3px, -3px);
+  }
+}
+
+.nav-arrow-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+
+  &.up {
+    transform: rotate(180deg);
+
+    .nav-arrow:hover & {
+      transform: rotate(180deg) translate(3px, -3px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 12px 24px;
+
+    nav {
+      display: none;
+    }
+  }
+
+  .nav-arrow {
+    display: block;
   }
 }
 </style>
