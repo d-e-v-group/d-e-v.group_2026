@@ -18,6 +18,10 @@ import content from '~/assets/js/content.js'
 .hero {
   position: relative;
   min-height: 100vh;
+  /* fall-back */
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: fill-available;
   display: flex;
   flex-direction: column;
   padding-top: 140px;
