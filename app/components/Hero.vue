@@ -19,9 +19,10 @@ import content from '~/assets/js/content.js'
   position: relative;
   min-height: 100vh;
   /* fall-back */
-  min-height: -moz-available;
-  min-height: -webkit-fill-available;
-  min-height: fill-available;
+  // min-height: -moz-available;
+  // min-height: -webkit-fill-available;
+  // min-height: fill-available;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   padding-top: 140px;
