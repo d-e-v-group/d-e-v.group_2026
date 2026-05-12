@@ -13,16 +13,23 @@ const active = computed(() => content.services[activeIdx.value])
       </div>
       <div class="services-interactive">
         <div class="services-list">
-          <button
-            v-for="(s, i) in content.services"
-            :key="s.n"
-            :class="['service-row', { active: activeIdx === i }]"
-            @mouseenter="activeIdx = i"
-            @focus="activeIdx = i"
-          >
-            <div class="title">{{ s.title }}</div>
-            <div class="arrow">{{ activeIdx === i ? '●' : '→' }}</div>
-          </button>
+          <div v-for="(s, i) in content.services" :key="s.n" class="service-item">
+            <button
+              :class="['service-row', { active: activeIdx === i }]"
+              @mouseenter="activeIdx = i"
+              @focus="activeIdx = i"
+              @click="activeIdx = i"
+            >
+              <div class="title">{{ s.title }}</div>
+              <div class="arrow">{{ activeIdx === i ? '●' : '→' }}</div>
+            </button>
+            <Transition name="accordion">
+              <div v-if="activeIdx === i" class="service-detail-inline">
+                <div class="detail-meta">{{ s.meta }}</div>
+                <p class="detail-desc">{{ s.desc }}</p>
+              </div>
+            </Transition>
+          </div>
         </div>
         <div class="services-detail" :key="activeIdx">
           <div class="detail-meta">{{ active.meta }}</div>
@@ -45,6 +52,18 @@ const active = computed(() => content.services[activeIdx.value])
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     gap: 32px;
+
+    .services-detail { display: none; }
+
+    .service-detail-inline {
+      display: block;
+      padding: 20px 0 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .service-item:has(.service-row.active) .service-row {
+      border-bottom: none;
+    }
   }
 
   .services-list {
@@ -121,7 +140,10 @@ const active = computed(() => content.services[activeIdx.value])
   top: 96px;
   padding: 32px 0 0;
   animation: fadeInUp 0.35s cubic-bezier(0.2,0.8,0.2,1);
+}
 
+.services-detail,
+.service-detail-inline {
   .detail-meta {
     font-size: 11px;
     letter-spacing: 0.12em;
@@ -138,6 +160,25 @@ const active = computed(() => content.services[activeIdx.value])
     color: var(--fg);
     max-width: 38ch;
   }
+}
+
+/* Inline accordion detail — desktop: hidden */
+.service-detail-inline {
+  display: none;
+}
+
+/* Accordion transition */
+.accordion-enter-active,
+.accordion-leave-active {
+  overflow: hidden;
+  transition: max-height 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity   0.25s ease;
+  max-height: 240px;
+}
+.accordion-enter-from,
+.accordion-leave-to {
+  max-height: 0;
+  opacity: 0;
 }
 
 @keyframes fadeInUp {
