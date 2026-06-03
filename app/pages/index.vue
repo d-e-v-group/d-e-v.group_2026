@@ -32,7 +32,6 @@ useReveal()
 </script>
 
 <template>
-  <GradientCursor v-if="tweaks.cursor !== false" />
   <AppTopbar />
   <Hero />
   <SectionServices />
