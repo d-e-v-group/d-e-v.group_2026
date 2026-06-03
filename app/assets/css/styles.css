@@ -53,6 +53,18 @@
   font-display: swap;
 }
 
+/* Hold first paint until branded fonts are ready (see nuxt.config head
+   script) so text never renders in a fallback font and then swaps. The
+   inline script swaps .fonts-loading -> .fonts-loaded; a 1.2s timeout
+   guarantees the page reveals even if font loading stalls. */
+html.fonts-loading body {
+  opacity: 0;
+}
+body {
+  opacity: 1;
+  transition: opacity 0.18s ease;
+}
+
 /* ---------- Tokens ---------- */
 :root {
   --bg: #ffffff;
