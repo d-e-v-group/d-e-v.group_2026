@@ -163,12 +163,33 @@ export default {
   ],
 
   team: [
-    { name: "Brendan Sheehan", role: "Founder / Developer", initials: "BS" },
-    { name: "Mike Watt", role: "Operations / Developer", initials: "MW" },
-    { name: "Mike Chopko", role: "Growth / Developer", initials: "MC" },
+    {
+      name: "Brendan Sheehan",
+      role: "Founder / Developer",
+      initials: "BS",
+      photo: "",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Mike Watt",
+      role: "Operations / Developer",
+      initials: "MW",
+      photo: "",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Mike Chopko",
+      role: "Growth / Developer",
+      initials: "MC",
+      photo: "",
+      linkedin: "#",
+      github: "#",
+    },
   ],
 
-  capabilities: [
+  capabilitiesOld: [
     "HubSpot",
     "Shopify",
     "React.js",
@@ -203,5 +224,15 @@ export default {
     "MYSQL",
     "Serverless",
     "Klaviyo",
+  ],
+  capabilities: [
+    "Frontend Frameworks: React.js, Vue.js, Nuxt.js, Next.js, Tailwind, SCSS",
+    "Intereractice Experiences: WebGL, Canvas, Three.js, WebAudio API, Pixi.js",
+    "Fullstack: Headless, Serverless, GraphQL, Node.js, PHP, MYSQL",
+    "Ecommerce: Shopify, WooComerce",
+    "Content Managment: Sanity, Contentful, Strapi, Wordpress",
+    "Architecture: AWS, Digital Ocean, Pantheon, WPEngine",
+    "CRM: Hubspot, Klaviyo, SalesForce",
+    "No-code / Low-code: Webflow, Framer, Hubspot, Airtable",
   ],
 };
