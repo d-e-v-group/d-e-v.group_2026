@@ -36,6 +36,7 @@ useReveal()
   <Hero />
   <SectionServices />
   <SectionWork />
+  <SectionTestimonials />
   <SectionTeam />
   <AppFooter />
   <Tweaks :edit-mode="editMode" />
