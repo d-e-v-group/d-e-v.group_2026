@@ -28,12 +28,7 @@ onUnmounted(stop)
 
       <div class="carousel reveal" @mouseenter="stop" @mouseleave="start">
         <div class="c-stage">
-          <figure
-            v-for="(t, i) in items"
-            :key="t.name"
-            class="c-slide"
-            :class="{ 'is-active': i === cur }"
-          >
+          <figure v-for="(t, i) in items" :key="t.name" class="c-slide" :class="{ 'is-active': i === cur }">
             <blockquote class="c-quote">{{ t.quote }}</blockquote>
             <div class="asym-meta">
               <div class="asym-client">{{ t.client }}</div>
@@ -44,25 +39,25 @@ onUnmounted(stop)
         </div>
 
         <div class="c-controls">
-          <div class="c-index">
+          <!-- <div class="c-index">
             <span>{{ pad(cur + 1) }}</span><i>/</i><span>{{ pad(total) }}</span>
-          </div>
+          </div> -->
           <div class="c-dots">
-            <button
-              v-for="(t, i) in items"
-              :key="i"
-              class="c-dot"
-              :class="{ 'is-active': i === cur }"
-              :aria-label="`Go to quote ${i + 1}`"
-              @click="select(i)"
-            ></button>
+            <button v-for="(t, i) in items" :key="i" class="c-dot" :class="{ 'is-active': i === cur }"
+              :aria-label="`Go to quote ${i + 1}`" @click="select(i)"></button>
           </div>
           <div class="c-arrows">
             <button class="c-arrow" aria-label="Previous testimonial" @click="prev">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </button>
             <button class="c-arrow" aria-label="Next testimonial" @click="next">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </button>
           </div>
         </div>
@@ -139,9 +134,9 @@ onUnmounted(stop)
   line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--fg);
-  margin-bottom: 18px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--rule);
+  //margin-bottom: 18px;
+  //padding-bottom: 18px;
+  //border-bottom: 1px solid var(--rule);
 }
 
 .asym-name {
@@ -181,7 +176,11 @@ onUnmounted(stop)
   font-variant-numeric: tabular-nums;
   min-width: 70px;
 
-  i { color: var(--fg-faint); font-style: normal; padding: 0 4px; }
+  i {
+    color: var(--fg-faint);
+    font-style: normal;
+    padding: 0 4px;
+  }
 }
 
 .c-dots {
@@ -198,8 +197,13 @@ onUnmounted(stop)
     background: var(--rule);
     transition: background 0.3s ease;
 
-    &.is-active { background: var(--fg); }
-    &:hover { background: var(--accent); }
+    &.is-active {
+      background: var(--fg);
+    }
+
+    &:hover {
+      background: var(--accent);
+    }
   }
 }
 
@@ -222,8 +226,14 @@ onUnmounted(stop)
     justify-content: center;
     transition: border-color 0.25s ease;
 
-    &:hover { border-color: var(--fg); }
-    svg { width: 15px; height: 15px; }
+    &:hover {
+      border-color: var(--fg);
+    }
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
   }
 }
 </style>

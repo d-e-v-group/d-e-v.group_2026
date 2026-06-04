@@ -83,6 +83,8 @@ body {
   /* Hero-derived iridescent gradient. Deep palette for light mode so it
      stays legible on white; softened under [data-theme="dark"] below. */
   --holo: linear-gradient(115deg, #3fb98a 0%, #e0b53a 18%, #f06aa6 38%, #9a6cf0 58%, #3f9fe0 78%, #46c98a 100%);
+  --holo-soft: linear-gradient(115deg, #aef0c9 0%, #fbf0a6 16%, #ffc6df 34%, #d7c2ff 54%, #b6e6ff 74%, #bdf4d4 100%);
+  --black-gradient: linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 100%);
 }
 
 /*

@@ -11,16 +11,16 @@ const yyyy = computed(() => now.value.getUTCFullYear())
 /* Retro icons scattered behind the CTA — mirrors the hero's falling-icon field.
    Deterministic delays (no Math.random) so SSR and client markup match. */
 const scatter = [
-  { icon: 'computer',   size: 58, top: '26%', left: '60%', rot: -14, dur: 9,    delay: 0.0 },
-  { icon: 'floppydisk', size: 46, top: '34%', left: '82%', rot: 12,  dur: 11,   delay: 1.4 },
-  { icon: 'peace',      size: 50, top: '22%', left: '42%', rot: -8,  dur: 8,    delay: 0.8 },
-  { icon: 'folder',     size: 54, top: '58%', left: '66%', rot: 16,  dur: 10,   delay: 2.1 },
-  { icon: 'mailbox',    size: 58, top: '30%', left: '88%', rot: -10, dur: 12,   delay: 0.5 },
-  { icon: 'mouse',      size: 44, top: '52%', left: '48%', rot: 9,   dur: 9.5,  delay: 1.9 },
-  { icon: 'thumbs-up',  size: 40, top: '70%', left: '86%', rot: -16, dur: 10.5, delay: 3.2 },
-  { icon: 'pencil',     size: 48, top: '42%', left: '72%', rot: 14,  dur: 8.5,  delay: 2.6 },
-  { icon: 'documents',  size: 42, top: '24%', left: '52%', rot: -6,  dur: 11.5, delay: 1.1 },
-  { icon: 'bomb',       size: 36, top: '72%', left: '54%', rot: -12, dur: 10,   delay: 0.3 },
+  { icon: 'computer', size: 58, top: '26%', left: '60%', rot: -14, dur: 9, delay: 0.0 },
+  { icon: 'floppydisk', size: 46, top: '34%', left: '82%', rot: 12, dur: 11, delay: 1.4 },
+  { icon: 'peace', size: 50, top: '22%', left: '42%', rot: -8, dur: 8, delay: 0.8 },
+  { icon: 'folder', size: 54, top: '58%', left: '66%', rot: 16, dur: 10, delay: 2.1 },
+  { icon: 'mailbox', size: 58, top: '30%', left: '88%', rot: -10, dur: 12, delay: 0.5 },
+  { icon: 'mouse', size: 44, top: '52%', left: '48%', rot: 9, dur: 9.5, delay: 1.9 },
+  { icon: 'thumbs-up', size: 40, top: '70%', left: '86%', rot: -16, dur: 10.5, delay: 3.2 },
+  { icon: 'pencil', size: 48, top: '42%', left: '72%', rot: 14, dur: 8.5, delay: 2.6 },
+  { icon: 'documents', size: 42, top: '24%', left: '52%', rot: -6, dur: 11.5, delay: 1.1 },
+  { icon: 'bomb', size: 36, top: '72%', left: '54%', rot: -12, dur: 10, delay: 0.3 },
 ]
 
 const iconStyle = (s) => ({
@@ -46,12 +46,7 @@ const socialIcons = {
   <footer class="footer-v2">
     <!-- Scattered retro icons, holographic-filled (mask over --holo gradient) -->
     <div class="footer-scatter" aria-hidden="true">
-      <span
-        v-for="s in scatter"
-        :key="s.icon"
-        class="holo-icon"
-        :style="iconStyle(s)"
-      ></span>
+      <span v-for="s in scatter" :key="s.icon" class="holo-icon" :style="iconStyle(s)"></span>
     </div>
 
     <div class="footer-inner">
@@ -65,14 +60,10 @@ const socialIcons = {
           </span>
         </div>
         <nav class="footer-social">
-          <a
-            v-for="s in content.social"
-            :key="s.label"
-            :href="s.href"
-            target="_blank"
-            rel="noopener"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path :d="socialIcons[s.label]" /></svg>
+          <a v-for="s in content.social" :key="s.label" :href="s.href" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path :d="socialIcons[s.label]" />
+            </svg>
             <span>{{ s.label }}</span>
           </a>
         </nav>
@@ -125,7 +116,7 @@ const socialIcons = {
 .holo-icon {
   display: inline-block;
   position: absolute;
-  background-image: var(--holo);
+  background-image: var(--black-gradient);
   -webkit-mask: var(--src) center / contain no-repeat;
   mask: var(--src) center / contain no-repeat;
   opacity: 0.82;
@@ -138,8 +129,15 @@ const socialIcons = {
 }
 
 @keyframes footerDrift {
-  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
-  50%      { transform: translateY(-12px) rotate(calc(var(--r, 0deg) + 7deg)); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(calc(var(--r, 0deg) + 7deg));
+  }
 }
 
 .footer-inner {
@@ -160,24 +158,52 @@ const socialIcons = {
   flex-wrap: wrap;
 }
 
-.avail { display: inline-flex; align-items: center; gap: 14px; }
+.avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .avail-dot {
-  width: 8px; height: 8px; border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   background: #22c55e;
   animation: availPulse 2s ease-in-out infinite;
   flex: 0 0 8px;
 }
+
 @keyframes availPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
-  50%      { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
 }
-.avail-text { display: inline-flex; gap: 14px; align-items: baseline; }
+
+.avail-text {
+  display: inline-flex;
+  gap: 14px;
+  align-items: baseline;
+}
+
 .avail-label {
-  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--fg-faint); font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  font-weight: 500;
 }
+
 .avail-value {
-  font-size: 13px; letter-spacing: 0.02em; color: var(--fg); font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  font-weight: 500;
 }
 
 .footer-social {
@@ -185,14 +211,26 @@ const socialIcons = {
   gap: 26px;
 
   a {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
-    text-decoration: none; color: var(--fg-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--fg-muted);
     transition: color 0.2s ease;
 
-    &:hover { color: var(--fg); }
+    &:hover {
+      color: var(--fg);
+    }
 
-    svg { width: 14px; height: 14px; fill: currentColor; }
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
   }
 }
 
@@ -201,14 +239,21 @@ const socialIcons = {
   padding: 96px 0 70px;
   max-width: 560px;
 
-  @media (max-width: 760px) { padding: 64px 0 48px; }
+  @media (max-width: 760px) {
+    padding: 64px 0 48px;
+  }
 }
+
 .footer-eyebrow {
   display: block;
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
   color: var(--accent-ink);
   margin-bottom: 26px;
 }
+
 .footer-headline {
   font-family: var(--serif);
   font-weight: 100;
@@ -217,10 +262,15 @@ const socialIcons = {
   letter-spacing: -0.03em;
   color: var(--fg);
 }
+
 .footer-email {
   margin-top: 34px;
-  display: inline-flex; align-items: center; gap: 12px;
-  font-size: 15px; letter-spacing: 0.02em; color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--fg);
   text-decoration: none;
   border: 1px solid var(--rule);
   border-radius: 999px;
@@ -229,10 +279,16 @@ const socialIcons = {
 
   &:hover {
     border-color: var(--fg);
-    .footer-email-arrow { transform: translate(4px, -4px); }
+
+    .footer-email-arrow {
+      transform: translate(4px, -4px);
+    }
   }
 }
-.footer-email-arrow { transition: transform 0.3s ease; }
+
+.footer-email-arrow {
+  transition: transform 0.3s ease;
+}
 
 /* Base row */
 .footer-base {
@@ -243,18 +299,27 @@ const socialIcons = {
   padding-top: 24px;
   border-top: 1px solid var(--rule);
   flex-wrap: wrap;
-  font-size: 11px; letter-spacing: 0.06em; font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  font-weight: 500;
   color: var(--fg-muted);
 
-  .fb-primary { color: var(--fg); }
+  .fb-primary {
+    color: var(--fg);
+  }
 
   @media (max-width: 620px) {
     gap: 8px;
-    span { flex: 0 0 100%; }
+
+    span {
+      flex: 0 0 100%;
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .holo-icon { animation: none; }
+  .holo-icon {
+    animation: none;
+  }
 }
 </style>
