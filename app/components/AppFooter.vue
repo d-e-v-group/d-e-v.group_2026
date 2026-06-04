@@ -44,7 +44,7 @@ const socialIcons = {
 
 <template>
   <footer class="footer-v2">
-    <!-- Scattered retro icons, holographic-filled (mask over --holo gradient) -->
+    <!-- Scattered retro icons, filled flat with --fg to match the hero icons (mask over solid fg) -->
     <div class="footer-scatter" aria-hidden="true">
       <span v-for="s in scatter" :key="s.icon" class="holo-icon" :style="iconStyle(s)"></span>
     </div>
@@ -116,7 +116,7 @@ const socialIcons = {
 .holo-icon {
   display: inline-block;
   position: absolute;
-  background-image: var(--black-gradient);
+  background-color: var(--fg);
   -webkit-mask: var(--src) center / contain no-repeat;
   mask: var(--src) center / contain no-repeat;
   opacity: 0.82;
