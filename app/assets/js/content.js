@@ -5,7 +5,7 @@ export default {
       "Technical direction and development for brands and creative teams",
     pitch:
       "Development Group is an experienced affiliation of creative technologists dedicated to navigating our partners smoothly through the digital seas. Shopify, headless, complex builds.",
-    status: "Accepting Q3 2026 projects",
+    // status is derived (always three quarters out) in AppFooter.vue
     year: "Est. 2014",
     location: "Los Angeles · St. Louis · Portland, OR · Worldwide",
     email: "hello@developmentgroup.co",

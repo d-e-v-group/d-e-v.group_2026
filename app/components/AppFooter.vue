@@ -7,6 +7,12 @@ onMounted(() => { timer = setInterval(() => { now.value = new Date() }, 1000) })
 onUnmounted(() => clearInterval(timer))
 
 const yyyy = computed(() => now.value.getUTCFullYear())
+
+// Always three quarters ahead of the present day, e.g. "Accepting Q1 2027 projects".
+const status = computed(() => {
+  const q = now.value.getFullYear() * 4 + Math.floor(now.value.getMonth() / 3) + 3
+  return `Accepting Q${(q % 4) + 1} ${Math.floor(q / 4)} projects`
+})
 </script>
 
 <template>
@@ -16,7 +22,7 @@ const yyyy = computed(() => now.value.getUTCFullYear())
         <span class="avail-dot" aria-hidden="true"></span>
         <span class="avail-text">
           <span class="avail-label">Status</span>
-          <span class="avail-value">{{ content.brand.status }}</span>
+          <span class="avail-value">{{ status }}</span>
         </span>
       </div>
     </div>
