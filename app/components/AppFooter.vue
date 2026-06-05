@@ -13,13 +13,13 @@ const yyyy = computed(() => now.value.getUTCFullYear())
 const scatter = [
   { icon: 'computer', size: 58, top: '26%', left: '60%', rot: -14, dur: 9, delay: 0.0 },
   { icon: 'floppydisk', size: 46, top: '34%', left: '82%', rot: 12, dur: 11, delay: 1.4 },
-  { icon: 'peace', size: 50, top: '22%', left: '42%', rot: -8, dur: 8, delay: 0.8 },
+  { icon: 'peace', size: 50, top: '32%', left: '42%', rot: -8, dur: 8, delay: 0.8 },
   { icon: 'folder', size: 54, top: '58%', left: '66%', rot: 16, dur: 10, delay: 2.1 },
   { icon: 'mailbox', size: 58, top: '30%', left: '88%', rot: -10, dur: 12, delay: 0.5 },
   { icon: 'mouse', size: 44, top: '52%', left: '48%', rot: 9, dur: 9.5, delay: 1.9 },
   { icon: 'thumbs-up', size: 40, top: '70%', left: '86%', rot: -16, dur: 10.5, delay: 3.2 },
   { icon: 'pencil', size: 48, top: '42%', left: '72%', rot: 14, dur: 8.5, delay: 2.6 },
-  { icon: 'documents', size: 42, top: '24%', left: '52%', rot: -6, dur: 11.5, delay: 1.1 },
+  { icon: 'documents', size: 42, top: '38%', left: '52%', rot: -6, dur: 11.5, delay: 1.1 },
   { icon: 'bomb', size: 36, top: '72%', left: '54%', rot: -12, dur: 10, delay: 0.3 },
 ]
 

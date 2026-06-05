@@ -12,9 +12,12 @@ export default {
   },
 
   social: [
-    { label: "GitHub", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Instagram", href: "#" },
+    { label: "GitHub", href: "https://github.com/orgs/d-e-v-group" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/d-e-v-group/",
+    },
+    // { label: "Instagram", href: "#" },
   ],
 
   nav: [
@@ -1111,25 +1114,25 @@ export default {
       name: "Brendan Sheehan",
       role: "Founder / Developer",
       initials: "BS",
-      photo: "/images/brendan.gif",
-      linkedin: "#",
-      github: "#",
+      photo: "/images/brendan.jpg",
+      linkedin: "https://www.linkedin.com/in/brendan-sheehan-12b3786/",
+      github: "https://github.com/feemcgill",
     },
     {
       name: "Mike Watt",
       role: "Operations / Developer",
       initials: "MW",
-      photo: "/images/watt.gif",
-      linkedin: "#",
-      github: "#",
+      photo: "/images/watt.jpg",
+      linkedin: "https://www.linkedin.com/in/mike-watt-b626b02b0/",
+      github: "https://github.com/mikebikeboy",
     },
     {
       name: "Mike Chopko",
       role: "Growth / Developer",
       initials: "MC",
-      photo: "/images/chopko.gif",
-      linkedin: "#",
-      github: "#",
+      photo: "/images/chopko.jpg",
+      linkedin: "https://www.linkedin.com/in/mchopko/",
+      github: "https://github.com/mchopko",
     },
   ],
 
