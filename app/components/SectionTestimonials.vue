@@ -27,6 +27,7 @@ onUnmounted(stop)
       </div>
 
       <div class="carousel reveal" @mouseenter="stop" @mouseleave="start">
+        <span class="c-mark" aria-hidden="true">“</span>
         <div class="c-stage">
           <figure v-for="(t, i) in items" :key="t.name" class="c-slide" :class="{ 'is-active': i === cur }">
             <blockquote class="c-quote">{{ t.quote }}</blockquote>
@@ -70,6 +71,24 @@ onUnmounted(stop)
 /* ---------- Testimonials carousel ---------- */
 .carousel {
   position: relative;
+}
+
+.c-mark {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(88px, 11vw, 150px);
+  line-height: 0.6;
+  height: 0.46em;
+  color: var(--accent-ink);
+  user-select: none;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 860px) {
+  .c-mark {
+    margin-bottom: 8px;
+  }
 }
 
 .c-stage {
