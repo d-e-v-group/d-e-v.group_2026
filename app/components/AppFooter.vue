@@ -29,9 +29,92 @@ const iconStyle = (s) => ({
   top: s.top,
   left: s.left,
   '--src': `url(/icons/${s.icon}.svg)`,
-  '--r': `${s.rot}deg`,
-  '--d': `${s.dur}s`,
-  animationDelay: `${s.delay}s`,
+})
+
+/* Cursor-repel + ambient bob. All motion is driven by one rAF loop that owns
+   each icon's transform (the old footerDrift keyframe can't coexist with a
+   JS transform on the same element). Mirrors GradientCursor's rAF+lerp pattern. */
+const scatterEl = ref(null)
+const iconEls = ref([])
+const setIconRef = (el, i) => { if (el) iconEls.value[i] = el }
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+  const REPEL_RADIUS = 160   // px — influence radius around each icon center
+  const REPEL_STRENGTH = 90  // px — push magnitude at the cursor
+  const MAX_DISPLACE = 120   // px — clamp on the pushed offset
+  const PUSH_LERP = 0.20     // fast flee toward the target
+  const RETURN_LERP = 0.045  // slow, damped glide back to rest (no overshoot)
+  const BOB_AMP = 12         // px — ambient vertical float
+  const BOB_ROT = 7          // deg — ambient rotation wobble
+
+  const state = scatter.map((s, i) => ({
+    ox: 0, oy: 0, tx: 0, ty: 0,
+    rot: s.rot,
+    phase: i * 1.7,
+    bobDur: s.dur,
+    topF: parseFloat(s.top) / 100,
+    leftF: parseFloat(s.left) / 100,
+    size: s.size,
+  }))
+
+  const cursor = { x: -9999, y: -9999 }
+  const onMove = (e) => { cursor.x = e.clientX; cursor.y = e.clientY }
+  window.addEventListener('pointermove', onMove, { passive: true })
+
+  let raf = null
+  const tick = (now) => {
+    const rect = scatterEl.value?.getBoundingClientRect()
+    if (rect) {
+      const t = now / 1000
+      for (let i = 0; i < state.length; i++) {
+        const st = state[i]
+        // Resting center from the container rect (not the icon's own, to avoid
+        // a feedback loop with the applied transform; also scroll-robust).
+        const cx = rect.left + st.leftF * rect.width + st.size / 2
+        const cy = rect.top + st.topF * rect.height + st.size / 2
+
+        const dx = cx - cursor.x
+        const dy = cy - cursor.y
+        const dist = Math.hypot(dx, dy) || 0.0001
+
+        let pushing = false
+        if (dist < REPEL_RADIUS) {
+          const falloff = 1 - dist / REPEL_RADIUS
+          const force = REPEL_STRENGTH * falloff * falloff
+          let nx = (dx / dist) * force
+          let ny = (dy / dist) * force
+          const mag = Math.hypot(nx, ny)
+          if (mag > MAX_DISPLACE) { nx = nx / mag * MAX_DISPLACE; ny = ny / mag * MAX_DISPLACE }
+          st.tx = nx; st.ty = ny
+          pushing = true
+        } else {
+          st.tx = 0; st.ty = 0
+        }
+
+        const lerp = pushing ? PUSH_LERP : RETURN_LERP
+        st.ox += (st.tx - st.ox) * lerp
+        st.oy += (st.ty - st.oy) * lerp
+
+        const w = (t / st.bobDur + st.phase) * Math.PI * 2
+        const bobY = Math.sin(w) * BOB_AMP
+        const rot = st.rot + Math.sin(w) * BOB_ROT
+
+        const el = iconEls.value[i]
+        if (el) {
+          el.style.transform = `translate3d(${st.ox}px, ${st.oy + bobY}px, 0) rotate(${rot}deg)`
+        }
+      }
+    }
+    raf = requestAnimationFrame(tick)
+  }
+  raf = requestAnimationFrame(tick)
+
+  onUnmounted(() => {
+    window.removeEventListener('pointermove', onMove)
+    if (raf) cancelAnimationFrame(raf)
+  })
 })
 
 /* Inline marks for the social row */
@@ -45,8 +128,8 @@ const socialIcons = {
 <template>
   <footer class="footer-v2">
     <!-- Scattered retro icons, filled flat with --fg to match the hero icons (mask over solid fg) -->
-    <div class="footer-scatter" aria-hidden="true">
-      <span v-for="s in scatter" :key="s.icon" class="holo-icon" :style="iconStyle(s)"></span>
+    <div ref="scatterEl" class="footer-scatter" aria-hidden="true">
+      <span v-for="(s, i) in scatter" :key="s.icon" :ref="el => setIconRef(el, i)" class="holo-icon" :style="iconStyle(s)"></span>
     </div>
 
     <div class="footer-inner">
@@ -120,23 +203,10 @@ const socialIcons = {
   -webkit-mask: var(--src) center / contain no-repeat;
   mask: var(--src) center / contain no-repeat;
   opacity: 0.82;
-  animation: footerDrift var(--d, 9s) ease-in-out infinite;
-  transform: rotate(var(--r, 0deg));
+  will-change: transform;
 
   [data-theme="dark"] & {
     opacity: 0.55;
-  }
-}
-
-@keyframes footerDrift {
-
-  0%,
-  100% {
-    transform: translateY(0) rotate(var(--r, 0deg));
-  }
-
-  50% {
-    transform: translateY(-12px) rotate(calc(var(--r, 0deg) + 7deg));
   }
 }
 
@@ -314,12 +384,6 @@ const socialIcons = {
     span {
       flex: 0 0 100%;
     }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .holo-icon {
-    animation: none;
   }
 }
 </style>
