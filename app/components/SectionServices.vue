@@ -23,12 +23,12 @@ const active = computed(() => content.services[activeIdx.value])
               <div class="title">{{ s.title }}</div>
               <div class="arrow">{{ activeIdx === i ? '●' : '→' }}</div>
             </button>
-            <Transition name="accordion">
-              <div v-if="activeIdx === i" class="service-detail-inline">
-                <div class="detail-meta">{{ s.meta }}</div>
-                <p class="detail-desc">{{ s.desc }}</p>
-              </div>
-            </Transition>
+            <!-- Always rendered; hidden on desktop (side panel drives hover),
+                 shown stacked on mobile in place of the accordion. -->
+            <div class="service-detail-inline">
+              <div class="detail-meta">{{ s.meta }}</div>
+              <p class="detail-desc">{{ s.desc }}</p>
+            </div>
           </div>
         </div>
         <div class="services-detail" :key="activeIdx">
@@ -61,8 +61,14 @@ const active = computed(() => content.services[activeIdx.value])
       border-bottom: 1px solid var(--rule);
     }
 
-    .service-item:has(.service-row.active) .service-row {
+    /* Each row is now followed by its detail; let the detail's border-bottom
+       separate the stacked blocks, and drop the accordion arrow affordance. */
+    .service-row {
       border-bottom: none;
+
+      .arrow { display: none; }
+
+      &:hover { padding-left: 0; }
     }
   }
 
@@ -165,20 +171,6 @@ const active = computed(() => content.services[activeIdx.value])
 /* Inline accordion detail — desktop: hidden */
 .service-detail-inline {
   display: none;
-}
-
-/* Accordion transition */
-.accordion-enter-active,
-.accordion-leave-active {
-  overflow: hidden;
-  transition: max-height 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
-              opacity   0.25s ease;
-  max-height: 240px;
-}
-.accordion-enter-from,
-.accordion-leave-to {
-  max-height: 0;
-  opacity: 0;
 }
 
 @keyframes fadeInUp {
