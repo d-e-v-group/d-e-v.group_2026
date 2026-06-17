@@ -10,6 +10,7 @@ const active = computed(() => content.services[activeIdx.value])
     <div class="page">
       <div class="section-head">
         <h2 class="section-title">{{ content.sections.services }}</h2>
+        <p class="section-quote">{{ content.sectionQuotes.services }}</p>
       </div>
       <div class="services-interactive">
         <div class="services-list">

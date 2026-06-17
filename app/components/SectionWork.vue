@@ -75,6 +75,7 @@ watch([sorted, view], () => nextTick(markOverflow))
     <div class="page">
       <div class="work-head">
         <h2 class="section-title">{{ content.sections.work }}</h2>
+        <p class="section-quote">{{ content.sectionQuotes.work }}</p>
         <div class="work-toggle" role="tablist" aria-label="Work view">
           <button role="tab" :aria-selected="view === 'featured'" @click="view = 'featured'">Featured</button>
           <button role="tab" :aria-selected="view === 'all'" @click="view = 'all'">All <span class="ct">{{ all.length
@@ -149,6 +150,10 @@ watch([sorted, view], () => nextTick(markOverflow))
   align-items: center;
   gap: 24px;
   margin-bottom: 56px;
+
+  .section-quote {
+    margin-top: 0;
+  }
 }
 
 .work-toggle {

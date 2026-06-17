@@ -7,6 +7,7 @@ import content from '~/assets/js/content.js'
     <div class="page">
       <div class="section-head">
         <h2 class="section-title">{{ content.sections.team }}</h2>
+        <p class="section-quote">{{ content.sectionQuotes.team }}</p>
       </div>
       <div class="team-grid">
         <div v-for="m in content.team" :key="m.name" class="team-card reveal">

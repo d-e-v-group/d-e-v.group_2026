@@ -24,6 +24,7 @@ onUnmounted(stop)
     <div class="page">
       <div class="section-head">
         <h2 class="section-title">{{ content.sections.testimonials }}</h2>
+        <p class="section-quote">{{ content.sectionQuotes.testimonials }}</p>
       </div>
 
       <div class="carousel reveal" @mouseenter="stop" @mouseleave="start">

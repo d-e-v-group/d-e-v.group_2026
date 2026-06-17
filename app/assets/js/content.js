@@ -34,6 +34,13 @@ export default {
     team: "Who we are.",
   },
 
+  sectionQuotes: {
+    services: "It is not down on any map; true places never are.",
+    work: "The path to my fixed purpose is laid with iron rails.",
+    testimonials: "A whale-ship was my Yale College and my Harvard.",
+    team: "Call me Ishmael.",
+  },
+
   testimonials: [
     {
       quote:
