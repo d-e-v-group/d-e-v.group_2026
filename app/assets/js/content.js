@@ -88,13 +88,13 @@ export default {
     {
       n: "02",
       title: "Design-Driven Development",
-      meta: "Design → Production",
+      meta: "Design Realized",
       desc: "Our design background gives us an edge in how we build. We deliver high-fidelity digital experiences built to scale—with immersive interactions and implementation that impresses your design team.",
     },
     {
       n: "03",
       title: "Ecommerce",
-      meta: "Storefront → Fulfillment",
+      meta: "Commerce Engineered",
       desc: "We go far beyond template builds. Custom product experiences, dynamic upsells, customer success integrations, inventory and shipping flows—we help you get the most out of your stack so you can focus on your customers.",
     },
     {
@@ -106,25 +106,25 @@ export default {
     {
       n: "05",
       title: "Data-Driven Marketing & CRO",
-      meta: "Test → Convert",
+      meta: "Measure and Improve",
       desc: "From A/B testing to personalized campaigns, we build experiences backed by real data. Custom email and SMS flows, targeted landing pages, and UI/UX improvements that drive conversions.",
     },
     {
       n: "06",
       title: "High-Code / Low-Code / No-Code Systems",
-      meta: "Right Tool, Right Job",
+      meta: "Pragmatic Solutions",
       desc: "Not every problem needs a custom build. We match the right tools to your actual needs—Webflow or Framer for marketing sites, Shopify for ecommerce, and Airtable or Softr for rapid workflow testing and launch.",
     },
     {
       n: "07",
       title: "AI, Blockchain & Emerging Tech",
-      meta: "Days, Not Weeks",
+      meta: "Practical Innovation",
       desc: "From on-chain operations across Ethereum and Layer 2 ecosystems to AI-powered internal workflows, we help clients move faster and build smarter. We build in days what used to take weeks and help teams integrate these tools into their own products.",
     },
     {
       n: "08",
       title: "Legacy Systems & Replatforming",
-      meta: "Migrate Without Downtime",
+      meta: "Continuous Evolution",
       desc: "We've worked through decades of shifting technology and seen trends come and go. We breathe new life into aging platforms and can replatform to newer systems without downtime, SEO loss, or user disruption.",
     },
   ],

@@ -18,7 +18,7 @@ const sorted = computed(() => {
   const mul = dir === 'asc' ? 1 : -1
   const val = (p) => key === 'year' ? p.sortYear
     : key === 'discipline' ? p.disc.toLowerCase()
-    : String(p[key] || '').toLowerCase()
+      : String(p[key] || '').toLowerCase()
   return [...all].sort((a, b) => {
     const va = val(a), vb = val(b)
     if (va < vb) return -1 * mul
@@ -77,19 +77,15 @@ watch([sorted, view], () => nextTick(markOverflow))
         <h2 class="section-title">{{ content.sections.work }}</h2>
         <div class="work-toggle" role="tablist" aria-label="Work view">
           <button role="tab" :aria-selected="view === 'featured'" @click="view = 'featured'">Featured</button>
-          <button role="tab" :aria-selected="view === 'all'" @click="view = 'all'">All <span class="ct">{{ all.length }}</span></button>
+          <button role="tab" :aria-selected="view === 'all'" @click="view = 'all'">All <span class="ct">{{ all.length
+              }}</span></button>
         </div>
       </div>
 
       <!-- FEATURED -->
       <div v-show="view === 'featured'" class="featured-grid view">
-        <article
-          v-for="p in content.projects"
-          :key="p.id"
-          class="project reveal"
-          :style="{ '--project-accent': p.accent }"
-          :id="`project-${p.id}`"
-        >
+        <article v-for="p in content.projects" :key="p.id" class="project reveal"
+          :style="{ '--project-accent': p.accent }" :id="`project-${p.id}`">
           <div class="project-media">
             <video v-if="p.video" :src="p.video" autoplay muted loop playsinline></video>
             <img v-else :src="p.image" :alt="p.title" />
@@ -113,24 +109,21 @@ watch([sorted, view], () => nextTick(markOverflow))
         </div>
         <div class="all-list" ref="listEl">
           <div class="wl-headrow wl-cols">
-            <button class="h" :class="{ sorted: sort.key === 'title' }" @click="setSort('title', 'text')">Project<span class="sort">{{ arrow('title') }}</span></button>
+            <button class="h" :class="{ sorted: sort.key === 'title' }" @click="setSort('title', 'text')">Project<span
+                class="sort">{{ arrow('title') }}</span></button>
             <span class="h static">Description</span>
-            <button class="h" :class="{ sorted: sort.key === 'discipline' }" @click="setSort('discipline', 'text')">Discipline<span class="sort">{{ arrow('discipline') }}</span></button>
-            <button class="h" :class="{ sorted: sort.key === 'partner' }" @click="setSort('partner', 'text')">Partner<span class="sort">{{ arrow('partner') }}</span></button>
-            <button class="h r" :class="{ sorted: sort.key === 'year' }" @click="setSort('year', 'num')">Year<span class="sort">{{ arrow('year') }}</span></button>
+            <button class="h" :class="{ sorted: sort.key === 'discipline' }"
+              @click="setSort('discipline', 'text')">Discipline<span class="sort">{{ arrow('discipline')
+                }}</span></button>
+            <button class="h" :class="{ sorted: sort.key === 'partner' }"
+              @click="setSort('partner', 'text')">Partner<span class="sort">{{ arrow('partner') }}</span></button>
+            <button class="h r" :class="{ sorted: sort.key === 'year' }" @click="setSort('year', 'num')">Year<span
+                class="sort">{{ arrow('year') }}</span></button>
           </div>
 
-          <component
-            :is="p.url ? 'a' : 'div'"
-            v-for="p in sorted"
-            :key="p.title"
-            class="wl-row wl-cols"
-            :href="p.url || null"
-            :target="p.url ? '_blank' : null"
-            :rel="p.url ? 'noopener' : null"
-            @mouseenter="descEnter"
-            @mouseleave="descLeave"
-          >
+          <component :is="p.url ? 'a' : 'div'" v-for="p in sorted" :key="p.title" class="wl-row wl-cols"
+            :href="p.url || null" :target="p.url ? '_blank' : null" :rel="p.url ? 'noopener' : null"
+            @mouseenter="descEnter" @mouseleave="descLeave">
             <div class="wl-name">{{ p.title }}<span v-if="p.url" class="ar">↗</span></div>
             <div class="wl-desc"><span class="inner">{{ p.desc }}</span></div>
             <div class="wl-type">{{ p.disc }}</div>
@@ -179,14 +172,38 @@ watch([sorted, view], () => nextTick(markOverflow))
     color: var(--fg-muted);
     transition: color 0.2s ease, background 0.25s ease;
 
-    .ct { margin-left: 6px; font-variant-numeric: tabular-nums; opacity: 0.6; }
-    &:hover { color: var(--fg); }
-    &[aria-selected="true"] { background: var(--bg-alt); color: var(--fg); }
+    .ct {
+      margin-left: 6px;
+      font-variant-numeric: tabular-nums;
+      opacity: 0.6;
+    }
+
+    &:hover {
+      color: var(--fg);
+    }
+
+    &[aria-selected="true"] {
+      background: var(--bg-alt);
+      color: var(--fg);
+    }
   }
 }
 
-.view { animation: workFade 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-@keyframes workFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.view {
+  animation: workFade 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes workFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 /* Featured grid (existing layout) */
 .featured-grid {
@@ -202,14 +219,29 @@ watch([sorted, view], () => nextTick(markOverflow))
   gap: 32px;
   align-items: start;
 
-  &:nth-child(even) .project-media { order: 2; }
-  &:nth-child(even) .project-body { grid-column: 1 / span 6; }
+  &:nth-child(even) .project-media {
+    order: 2;
+  }
+
+  &:nth-child(even) .project-body {
+    grid-column: 1 / span 6;
+  }
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
-    .project-media, .project-body { grid-column: 1 / -1; }
-    &:nth-child(even) .project-media { order: 0; }
-    &:nth-child(even) .project-body { grid-column: 1 / -1; }
+
+    .project-media,
+    .project-body {
+      grid-column: 1 / -1;
+    }
+
+    &:nth-child(even) .project-media {
+      order: 0;
+    }
+
+    &:nth-child(even) .project-body {
+      grid-column: 1 / -1;
+    }
   }
 }
 
@@ -220,90 +252,263 @@ watch([sorted, view], () => nextTick(markOverflow))
   overflow: hidden;
   border-radius: 20px;
 
-  video, img { width: 100%; height: auto; display: block; }
+  video,
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 }
 
-.project-body { grid-column: span 6; padding-top: 8px; }
+.project-body {
+  grid-column: span 6;
+  padding-top: 8px;
+}
+
 .project-meta {
-  padding-bottom: 16px; border-bottom: 1px solid var(--rule); margin-bottom: 24px;
-  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
 }
+
 .project-title {
-  font-family: var(--serif); font-size: clamp(36px, 7vw, 64px); font-weight: 100;
-  letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px;
+  font-family: var(--serif);
+  font-size: clamp(36px, 7vw, 64px);
+  font-weight: 100;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 20px;
 }
-.project-body > p { font-size: 15px; line-height: 1.55; color: var(--fg-muted); margin-bottom: 16px; }
-.project-stack { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+.project-body>p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+}
+
+.project-stack {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .project-stack .tag {
-  font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 6px 10px; border: 1px solid var(--rule); color: var(--fg-muted); border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  color: var(--fg-muted);
+  border-radius: 0;
+  background: var(--bg-alt);
 }
 
 /* All list */
 .all-meta {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-  padding: 0 8px; margin-bottom: 20px;
-  font-size: 11px; letter-spacing: 0.06em; color: var(--fg-faint); font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 0 8px;
+  margin-bottom: 20px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-faint);
+  font-weight: 500;
 }
-.all-list { border-top: 1px solid var(--rule); }
 
-.wl-cols { grid-template-columns: minmax(200px, 1fr) minmax(0, 2fr) 164px 150px 56px; }
-.wl-headrow, .wl-row { display: grid; gap: 40px; align-items: center; }
+.all-list {
+  border-top: 1px solid var(--rule);
+}
+
+.wl-cols {
+  grid-template-columns: minmax(200px, 1fr) minmax(0, 2fr) 164px 150px 56px;
+}
+
+.wl-headrow,
+.wl-row {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
 
 .wl-headrow {
   padding: 20px 8px 16px;
   border-bottom: 1px solid var(--rule);
 
   .h {
-    font: inherit; background: none; border: none; padding: 0; cursor: pointer; text-align: left;
-    font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-faint); font-weight: 500;
-    display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s ease;
+    font: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
 
-    &:hover { color: var(--fg); }
-    &.sorted { color: var(--fg); }
-    &.static { cursor: default; pointer-events: none; }
-    &.r { justify-content: flex-end; text-align: right; }
-    .sort { font-size: 9px; }
+    &:hover {
+      color: var(--fg);
+    }
+
+    &.sorted {
+      color: var(--fg);
+    }
+
+    &.static {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &.r {
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .sort {
+      font-size: 9px;
+    }
   }
 }
 
 .wl-row {
   padding: 13px 8px;
   border-bottom: 1px solid var(--rule);
-  color: inherit; text-decoration: none;
+  color: inherit;
+  text-decoration: none;
   transition: background 0.18s ease;
 
-  &:hover { background: var(--bg-alt); }
+  &:hover {
+    background: var(--bg-alt);
+  }
 }
-.wl-name {
-  font-family: var(--font); font-weight: 700; font-size: 13px; letter-spacing: 0.01em; line-height: 1.3;
-  color: var(--fg); display: inline-flex; align-items: center; gap: 8px;
 
-  .ar { font-size: 0.85em; font-weight: 400; color: var(--fg-faint); transition: transform 0.25s ease, color 0.2s ease; }
+.wl-name {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  .ar {
+    font-size: 0.85em;
+    font-weight: 400;
+    color: var(--fg-faint);
+    transition: transform 0.25s ease, color 0.2s ease;
+  }
 }
-a.wl-row:hover .wl-name { color: var(--accent-ink); }
-a.wl-row:hover .wl-name .ar { transform: translate(3px, -3px); color: var(--accent-ink); }
+
+a.wl-row:hover .wl-name {
+  color: var(--accent-ink);
+}
+
+a.wl-row:hover .wl-name .ar {
+  transform: translate(3px, -3px);
+  color: var(--accent-ink);
+}
 
 .wl-desc {
-  font-size: 13px; line-height: 1.4; color: var(--fg-muted);
-  overflow: hidden; white-space: nowrap;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--fg-muted);
+  overflow: hidden;
+  white-space: nowrap;
 
-  &.overflowing { -webkit-mask: linear-gradient(90deg, #000 86%, transparent); mask: linear-gradient(90deg, #000 86%, transparent); }
-  .inner { display: inline-block; transition: transform 0.25s linear; }
+  &.overflowing {
+    -webkit-mask: linear-gradient(90deg, #000 86%, transparent);
+    mask: linear-gradient(90deg, #000 86%, transparent);
+  }
+
+  .inner {
+    display: inline-block;
+    transition: transform 0.25s linear;
+  }
 }
-.wl-type { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.wl-partner { font-size: 11px; letter-spacing: 0.04em; color: var(--fg-muted); }
-.wl-year { font-size: 12px; letter-spacing: 0.02em; color: var(--fg-muted); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.wl-type {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wl-partner {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+}
+
+.wl-year {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--fg-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
 
 @media (max-width: 1024px) {
-  .wl-cols { grid-template-columns: 1fr 70px; }
-  .wl-headrow { display: none; }
-  .wl-row { gap: 4px 20px; grid-template-columns: 1fr 70px; padding: 16px 8px; }
-  .wl-name { grid-column: 1; }
-  .wl-year { grid-column: 2; grid-row: 1; }
-  .wl-desc { grid-column: 1 / -1; white-space: normal; overflow: visible; margin-top: 4px; -webkit-mask: none !important; mask: none !important;
-    .inner { transform: none !important; } }
-  .wl-type { grid-column: 1 / -1; margin-top: 6px; }
-  .wl-partner { grid-column: 1 / -1; }
+  .wl-cols {
+    grid-template-columns: 1fr 70px;
+  }
+
+  .wl-headrow {
+    display: none;
+  }
+
+  .wl-row {
+    gap: 4px 20px;
+    grid-template-columns: 1fr 70px;
+    padding: 16px 8px;
+  }
+
+  .wl-name {
+    grid-column: 1;
+  }
+
+  .wl-year {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .wl-desc {
+    grid-column: 1 / -1;
+    white-space: normal;
+    overflow: visible;
+    margin-top: 4px;
+    -webkit-mask: none !important;
+    mask: none !important;
+
+    .inner {
+      transform: none !important;
+    }
+  }
+
+  .wl-type {
+    grid-column: 1 / -1;
+    margin-top: 6px;
+  }
+
+  .wl-partner {
+    grid-column: 1 / -1;
+  }
 }
 </style>
