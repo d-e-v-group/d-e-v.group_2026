@@ -4,7 +4,7 @@ export default {
     headline:
       "Technical direction and development for brands and creative teams",
     pitch:
-      "Development Group is an experienced affiliation of creative technologists dedicated to navigating our partners smoothly through the digital seas. Shopify, headless, complex builds.",
+      "Development Group is an experienced affiliation of creative technologists dedicated to navigating our partners smoothly through the digital seas.",
     status: "Accepting Q3 2026 projects",
     year: "Est. 2013",
     location: "LA · STL · PDX · Worldwide",
@@ -23,6 +23,7 @@ export default {
   nav: [
     { label: "Services", href: "#services" },
     { label: "Work", href: "#work" },
+    { label: "Testimonials", href: "#testimonials" },
     { label: "Team", href: "#team" },
   ],
 
@@ -82,49 +83,49 @@ export default {
     {
       n: "01",
       title: "Technical Direction & Leadership",
-      meta: "Embedded Expertise",
+      meta: "Steady at the Helm",
       desc: "Decades of agency experience, available when you need it. We join strategy sessions, shape the technical brief, and keep the build honest from kickoff to launch—client-facing or behind the scenes.",
     },
     {
       n: "02",
       title: "Design-Driven Development",
-      meta: "Design Realized",
+      meta: "True to Course",
       desc: "Our design background gives us an edge in how we build. We deliver high-fidelity digital experiences built to scale—with immersive interactions and implementation that impresses your design team.",
     },
     {
       n: "03",
       title: "Ecommerce",
-      meta: "Commerce Engineered",
+      meta: "Built for Trade",
       desc: "We go far beyond template builds. Custom product experiences, dynamic upsells, customer success integrations, inventory and shipping flows—we help you get the most out of your stack so you can focus on your customers.",
     },
     {
       n: "04",
       title: "Scalable Architecture & Technical Planning",
-      meta: "Built to Last",
+      meta: "Sound and Seaworthy",
       desc: "We plan the boring parts carefully so the fun parts don't fall over. Data models, deployment strategy, caching, third-party integrations, and fail points—engineered for long-term growth and smooth operations.",
     },
     {
       n: "05",
       title: "Data-Driven Marketing & CRO",
-      meta: "Measure and Improve",
+      meta: "Navigate by the Numbers",
       desc: "From A/B testing to personalized campaigns, we build experiences backed by real data. Custom email and SMS flows, targeted landing pages, and UI/UX improvements that drive conversions.",
     },
     {
       n: "06",
       title: "High-Code / Low-Code / No-Code Systems",
-      meta: "Pragmatic Solutions",
+      meta: "Trim for Conditions",
       desc: "Not every problem needs a custom build. We match the right tools to your actual needs—Webflow or Framer for marketing sites, Shopify for ecommerce, and Airtable or Softr for rapid workflow testing and launch.",
     },
     {
       n: "07",
       title: "AI, Blockchain & Emerging Tech",
-      meta: "Practical Innovation",
+      meta: "Chart New Waters",
       desc: "From on-chain operations across Ethereum and Layer 2 ecosystems to AI-powered internal workflows, we help clients move faster and build smarter. We build in days what used to take weeks and help teams integrate these tools into their own products.",
     },
     {
       n: "08",
       title: "Legacy Systems & Replatforming",
-      meta: "Continuous Evolution",
+      meta: "Refit for the Future",
       desc: "We've worked through decades of shifting technology and seen trends come and go. We breathe new life into aging platforms and can replatform to newer systems without downtime, SEO loss, or user disruption.",
     },
   ],
