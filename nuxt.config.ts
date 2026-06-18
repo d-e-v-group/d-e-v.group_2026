@@ -6,6 +6,9 @@ export default defineNuxtConfig({
       // WPGraphQL endpoint the project list is fetched from at build time.
       // Override with NUXT_PUBLIC_WP_GRAPHQL_ENDPOINT.
       wpGraphqlEndpoint: 'https://wp.devgru.net/graphql',
+      // Canonical origin, used to build absolute URLs for canonical/OG/JSON-LD.
+      // Override with NUXT_PUBLIC_SITE_URL.
+      siteUrl: 'https://d-e-v.group',
     },
   },
   css: [
@@ -13,9 +16,9 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      htmlAttrs: { class: 'fonts-loading' },
+      htmlAttrs: { class: 'fonts-loading', lang: 'en' },
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/jpeg', href: '/favicon.jpg' },
         // Preload above-the-fold faces so they download at highest priority,
         // before the stylesheet is parsed. crossorigin is required so the
         // preload matches the CORS-anonymous request the @font-face makes.

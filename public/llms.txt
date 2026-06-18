@@ -1,0 +1,53 @@
+# Development Group
+
+> Development Group (also known as DEV Group / devgru) is an experienced affiliation of creative technologists providing technical direction and development for brands and creative teams. Established 2013. Based in LA, St. Louis, and Portland, working worldwide.
+
+## About
+
+- Founded: 2013
+- Locations: Los Angeles (LA), St. Louis (STL), Portland (PDX) — available worldwide
+- Contact: hello@d-e-v.group
+- Website: https://d-e-v.group
+- Focus: high-fidelity, design-driven web development, ecommerce, scalable architecture, and emerging tech for brands and creative agencies.
+
+## Services
+
+- **Technical Direction & Leadership** — Strategy sessions, technical briefs, and keeping the build honest from kickoff to launch; client-facing or behind the scenes.
+- **Design-Driven Development** — High-fidelity digital experiences built to scale, with immersive interactions and implementation that satisfies design teams.
+- **Ecommerce** — Custom product experiences, dynamic upsells, customer-success integrations, and inventory/shipping flows beyond template builds.
+- **Scalable Architecture & Technical Planning** — Data models, deployment strategy, caching, third-party integrations, and fail-point planning for long-term growth.
+- **Data-Driven Marketing & CRO** — A/B testing, personalized campaigns, custom email/SMS flows, targeted landing pages, and conversion-focused UI/UX.
+- **High-Code / Low-Code / No-Code Systems** — Matching the right tools (Webflow, Framer, Shopify, Airtable, Softr) to actual needs.
+- **AI, Blockchain & Emerging Tech** — On-chain operations across Ethereum and Layer 2 ecosystems, plus AI-powered internal workflows and product integration.
+- **Legacy Systems & Replatforming** — Modernizing aging platforms and replatforming without downtime, SEO loss, or user disruption.
+
+## Capabilities
+
+- Frontend: React.js, Vue.js, Nuxt.js, Next.js, Tailwind, SCSS
+- Interactive: WebGL, Canvas, Three.js, WebAudio API, Pixi.js
+- Fullstack: Headless, Serverless, GraphQL, Node.js, PHP, MySQL
+- Ecommerce: Shopify, WooCommerce
+- Content Management: Sanity, Contentful, Strapi, WordPress
+- Architecture: AWS, DigitalOcean, Pantheon, WP Engine
+- CRM: HubSpot, Klaviyo, Salesforce
+- No-code / Low-code: Webflow, Framer, HubSpot, Airtable
+
+## Selected clients & work
+
+- Coachella — high-scale festival platform (infrastructure, performance, cross-platform itinerary sync)
+- Bobby Flay — content platform unifying recipes, editorial, restaurants, and media
+- Animal Collective — experimental, audio-reactive web experiences
+- Susan David — digital platform and certification ecosystem with HubSpot CRM sync
+- AutoBio — physical-to-digital identity platform (QR/NFC activation)
+
+## Team
+
+- Brendan Sheehan — Founder / Developer
+- Mike Watt — Operations / Developer
+- Mike Chopko — Growth / Developer
+
+## Contact
+
+- Email: hello@d-e-v.group
+- GitHub: https://github.com/orgs/d-e-v-group
+- LinkedIn: https://www.linkedin.com/company/d-e-v-group/
