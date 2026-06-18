@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { class: 'fonts-loading' },
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         // Preload above-the-fold faces so they download at highest priority,
         // before the stylesheet is parsed. crossorigin is required so the
         // preload matches the CORS-anonymous request the @font-face makes.
