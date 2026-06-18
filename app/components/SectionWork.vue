@@ -3,13 +3,15 @@ import content from '~/assets/js/content.js'
 
 const view = ref('featured')
 
-/* All-projects list, normalized + sortable */
-const all = content.allProjects.map(p => ({
+/* All-projects list, sourced from WordPress (WP GraphQL) at build time,
+   falling back to the static content.js list. Normalized + sortable. */
+const { data: wpProjects } = useProjects()
+const all = computed(() => (wpProjects.value || content.allProjects).map(p => ({
   ...p,
   partner: p.partner || 'Development Group',
   disc: (p.category || []).join(' · '),
   sortYear: Math.max.apply(null, (String(p.year).match(/\d{4}/g) || ['0']).map(Number)),
-}))
+})))
 
 const sort = ref({ key: 'year', dir: 'desc' })
 
@@ -19,7 +21,7 @@ const sorted = computed(() => {
   const val = (p) => key === 'year' ? p.sortYear
     : key === 'discipline' ? p.disc.toLowerCase()
       : String(p[key] || '').toLowerCase()
-  return [...all].sort((a, b) => {
+  return [...all.value].sort((a, b) => {
     const va = val(a), vb = val(b)
     if (va < vb) return -1 * mul
     if (va > vb) return 1 * mul

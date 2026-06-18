@@ -8,7 +8,7 @@ export default {
     status: "Accepting Q3 2026 projects",
     year: "Est. 2013",
     location: "LA · STL · PDX · Worldwide",
-    email: "hello@developmentgroup.co",
+    email: "hello@d-e-v.group",
   },
 
   social: [

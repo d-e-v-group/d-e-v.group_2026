@@ -1,6 +1,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      // WPGraphQL endpoint the project list is fetched from at build time.
+      // Override with NUXT_PUBLIC_WP_GRAPHQL_ENDPOINT.
+      wpGraphqlEndpoint: 'https://wp.devgru.net/graphql',
+    },
+  },
   css: [
     '~/assets/css/styles.css',
   ],
