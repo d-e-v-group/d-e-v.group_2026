@@ -3,10 +3,10 @@ import content from '~/assets/js/content.js'
 
 const view = ref('featured')
 
-/* All-projects list, sourced from WordPress (WP GraphQL) at build time,
-   falling back to the static content.js list. Normalized + sortable. */
+/* All-projects list, sourced from WordPress (WP GraphQL) at build time.
+   Empty when WP is unreachable. Normalized + sortable. */
 const { data: wpProjects } = useProjects()
-const all = computed(() => (wpProjects.value || content.allProjects).map(p => ({
+const all = computed(() => (wpProjects.value || []).map(p => ({
   ...p,
   partner: p.partner || 'Development Group',
   disc: (p.category || []).join(' · '),

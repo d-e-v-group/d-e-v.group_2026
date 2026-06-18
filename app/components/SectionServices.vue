@@ -15,12 +15,8 @@ const active = computed(() => content.services[activeIdx.value])
       <div class="services-interactive">
         <div class="services-list">
           <div v-for="(s, i) in content.services" :key="s.n" class="service-item">
-            <button
-              :class="['service-row', { active: activeIdx === i }]"
-              @mouseenter="activeIdx = i"
-              @focus="activeIdx = i"
-              @click="activeIdx = i"
-            >
+            <button :class="['service-row', { active: activeIdx === i }]" @mouseenter="activeIdx = i"
+              @focus="activeIdx = i" @click="activeIdx = i">
               <div class="title">{{ s.title }}</div>
               <div class="arrow">{{ activeIdx === i ? '●' : '→' }}</div>
             </button>
@@ -28,12 +24,18 @@ const active = computed(() => content.services[activeIdx.value])
                  shown stacked on mobile in place of the accordion. -->
             <div class="service-detail-inline">
               <div class="detail-meta">{{ s.meta }}</div>
+              <div v-if="s.icon" class="detail-icon">
+                <img :src="`/icons/${s.icon}.svg`" :alt="`${s.title} icon`" width="40" height="40" />
+              </div>
               <p class="detail-desc">{{ s.desc }}</p>
             </div>
           </div>
         </div>
         <div class="services-detail" :key="activeIdx">
           <div class="detail-meta">{{ active.meta }}</div>
+          <div v-if="active.icon" class="detail-icon">
+            <img :src="`/icons/${active.icon}.svg`" :alt="`${active.title} icon`" width="40" height="40" />
+          </div>
           <p class="detail-desc">{{ active.desc }}</p>
         </div>
       </div>
@@ -54,7 +56,9 @@ const active = computed(() => content.services[activeIdx.value])
     grid-template-columns: 1fr;
     gap: 32px;
 
-    .services-detail { display: none; }
+    .services-detail {
+      display: none;
+    }
 
     .service-detail-inline {
       display: block;
@@ -67,9 +71,13 @@ const active = computed(() => content.services[activeIdx.value])
     .service-row {
       border-bottom: none;
 
-      .arrow { display: none; }
+      .arrow {
+        display: none;
+      }
 
-      &:hover { padding-left: 0; }
+      &:hover {
+        padding-left: 0;
+      }
     }
   }
 
@@ -107,11 +115,11 @@ const active = computed(() => content.services[activeIdx.value])
     }
 
     .title {
-      font-size: clamp(22px, 2.4vw, 32px);
+      font-size: clamp(18px, 2.4vw, 22px);
       font-weight: 500;
       letter-spacing: -0.02em;
       line-height: 1;
-      color: var(--fg-muted);
+      //color: var(--fg-muted);
       transition: color 0.3s ease;
     }
 
@@ -146,7 +154,7 @@ const active = computed(() => content.services[activeIdx.value])
   position: sticky;
   top: 96px;
   padding: 32px 0 0;
-  animation: fadeInUp 0.35s cubic-bezier(0.2,0.8,0.2,1);
+  animation: fadeInUp 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .services-detail,
@@ -159,14 +167,32 @@ const active = computed(() => content.services[activeIdx.value])
     margin-bottom: 32px;
     padding-bottom: 16px;
     border-bottom: 1px solid var(--rule);
+    display: none;
+  }
+
+  .detail-icon {
+    margin-bottom: 20px;
+
+    img {
+      display: block;
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
   }
 
   .detail-desc {
+    //padding-left: 20px;
     font-size: 19px;
     line-height: 1.45;
     color: var(--fg);
     max-width: 38ch;
   }
+}
+
+/* Retro icons ship as solid black; invert so they read on the dark theme. */
+[data-theme="dark"] .detail-icon img {
+  filter: invert(1);
 }
 
 /* Inline accordion detail — desktop: hidden */
@@ -179,6 +205,7 @@ const active = computed(() => content.services[activeIdx.value])
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: none;

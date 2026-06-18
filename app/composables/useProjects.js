@@ -1,5 +1,3 @@
-import content from '~/assets/js/content.js'
-
 const QUERY = `
   query Portfolios($after: String) {
     portfolios(first: 100, after: $after) {
@@ -8,7 +6,12 @@ const QUERY = `
         title
         featuredImage { node { sourceUrl } }
         terms(first: 20) { nodes { name taxonomyName } }
-        PortfolioFields { year url description }
+        PortfolioFields {
+          year
+          url
+          description
+          friends { ... on Friend { title } }
+        }
       }
     }
   }
@@ -29,9 +32,9 @@ const decodeEntities = (s) => String(s || '')
   .replace(/&quot;/g, '"')
   .replace(/&nbsp;/g, ' ')
 
-// Map a WP `portfolio` node to the shape SectionWork expects (see content.js
-// `allProjects`). `partner` has no ACF field in WP, so it is left for
-// SectionWork to default to 'Development Group'.
+// Map a WP `portfolio` node to the shape SectionWork expects. `partner` comes
+// from the ACF `friends` relationship (a list of Friend posts); we join their
+// titles. When empty, SectionWork defaults it to 'Development Group'.
 const mapNode = (n) => ({
   title: decodeEntities(n.title),
   image: n.featuredImage?.node?.sourceUrl || '',
@@ -41,12 +44,16 @@ const mapNode = (n) => ({
   year: n.PortfolioFields?.year || '',
   url: n.PortfolioFields?.url || '',
   desc: decodeEntities(n.PortfolioFields?.description),
+  partner: (n.PortfolioFields?.friends || [])
+    .map(f => decodeEntities(f?.title))
+    .filter(Boolean)
+    .join(', '),
 })
 
 // Fetches the full project list from WPGraphQL at build/prerender time and
 // bakes it into the SSR payload (fixed useAsyncData key → no client refetch).
-// Falls back to the static content.js list if WP is unreachable, so dev-offline
-// and a WP outage during `generate` degrade gracefully instead of breaking.
+// Returns an empty list if WP is unreachable, so dev-offline and a WP outage
+// during `generate` degrade gracefully instead of breaking.
 export const useProjects = () => useAsyncData('wp-projects', async () => {
   const endpoint = useRuntimeConfig().public.wpGraphqlEndpoint
   try {
@@ -64,7 +71,7 @@ export const useProjects = () => useAsyncData('wp-projects', async () => {
     } while (after)
     return nodes.map(mapNode)
   } catch (err) {
-    console.warn('[useProjects] WP fetch failed, using static fallback:', err?.message || err)
-    return content.allProjects
+    console.warn('[useProjects] WP fetch failed, returning empty list:', err?.message || err)
+    return []
   }
 })
