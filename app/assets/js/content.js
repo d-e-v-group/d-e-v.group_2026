@@ -117,7 +117,7 @@ export default {
       icon: "documents",
       desc: "From A/B testing to personalized campaigns, we build experiences backed by real data. Custom email and SMS flows, targeted landing pages, and UI/UX improvements that drive conversions.",
     },
-    {
+    /* {
       title: "High-Code / Low-Code / No-Code Systems",
       meta: "Trim for Conditions",
       icon: "mouse",
@@ -129,6 +129,7 @@ export default {
       icon: "bomb",
       desc: "From on-chain operations across Ethereum and Layer 2 ecosystems to AI-powered internal workflows, we help clients move faster and build smarter. We build in days what used to take weeks and help teams integrate these tools into their own products.",
     },
+    */
     {
       title: "Legacy Systems & Replatforming",
       meta: "Refit for the Future",
