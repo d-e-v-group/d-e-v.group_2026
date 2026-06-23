@@ -63,7 +63,7 @@ const active = computed(() => content.services[activeIdx.value])
     .service-detail-inline {
       display: block;
       padding: 20px 0 24px;
-      border-bottom: 1px solid var(--rule);
+      //border-bottom: 1px solid var(--rule);
     }
 
     /* Each row is now followed by its detail; let the detail's border-bottom
@@ -90,7 +90,12 @@ const active = computed(() => content.services[activeIdx.value])
     @media (max-width: 900px) {
       border-right: none;
       padding-right: 0;
+
+      .service-item {
+        margin-bottom: 40px;
+      }
     }
+
   }
 
   .service-row {
@@ -179,6 +184,11 @@ const active = computed(() => content.services[activeIdx.value])
       height: 40px;
       object-fit: contain;
     }
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+
   }
 
   .detail-desc {

@@ -129,7 +129,8 @@ const socialIcons = {
   <footer class="footer-v2">
     <!-- Scattered retro icons, filled flat with --fg to match the hero icons (mask over solid fg) -->
     <div ref="scatterEl" class="footer-scatter" aria-hidden="true">
-      <span v-for="(s, i) in scatter" :key="s.icon" :ref="el => setIconRef(el, i)" class="holo-icon" :style="iconStyle(s)"></span>
+      <span v-for="(s, i) in scatter" :key="s.icon" :ref="el => setIconRef(el, i)" class="holo-icon"
+        :style="iconStyle(s)"></span>
     </div>
 
     <div class="footer-inner">
@@ -194,6 +195,13 @@ const socialIcons = {
   inset: 0;
   pointer-events: none;
   z-index: 0;
+
+  @media (max-width: 900px) {
+    opacity: 0.3;
+    transform: translateX(-10%);
+
+  }
+
 }
 
 .holo-icon {

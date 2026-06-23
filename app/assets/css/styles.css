@@ -221,8 +221,8 @@ img {
   color: var(--accent-ink);
 }
 .section-title {
-  font-family: var(--serif);
-  font-size: clamp(48px, 7vw, 96px);
+  /* font-family: var(--serif); */
+  font-size: clamp(18px, 5vw, 26px);
   font-weight: 100;
   letter-spacing: -0.02em;
   line-height: 0.95;
