@@ -76,6 +76,7 @@ body {
   --accent: oklch(0.74 0.1 180);
   --accent-soft: oklch(0.93 0.06 180);
   --accent-ink: oklch(0.25 0.06 180);
+  --accent-blue: #0000ff;
   --font: 'ABC Diatype', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --serif: 'ITC Garamond Std', Georgia, serif;
   --sans: var(--font);
@@ -185,7 +186,6 @@ img {
 /* ---------- Section scaffold ---------- */
 .section {
   padding: 120px 0;
-  /* border-top: 1px solid var(--rule); */
 }
 .section-head {
   display: flex;
@@ -221,7 +221,6 @@ img {
   color: var(--accent-ink);
 }
 .section-title {
-  font-size: clamp(18px, 2.4vw, 22px);
   font-size: clamp(36px, 7vw, 64px);
   font-weight: 100;
   font-family: var(--serif);

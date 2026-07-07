@@ -1,0 +1,9 @@
+// Small bold sans-serif label style — used for the services list title,
+// services detail description, and testimonial client name.
+@mixin label-sans {
+  font-family: var(--sans);
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}

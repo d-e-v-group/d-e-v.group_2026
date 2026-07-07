@@ -1,6 +1,16 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // Shared SCSS mixins, available in every component's <style lang="scss"> block.
+          additionalData: '@use "~/assets/css/mixins.scss" as *;\n',
+        },
+      },
+    },
+  },
   runtimeConfig: {
     public: {
       // WPGraphQL endpoint the project list is fetched from at build time.

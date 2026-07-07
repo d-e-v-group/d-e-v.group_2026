@@ -148,21 +148,8 @@ onUnmounted(stop)
 }
 
 .asym-client {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(24px, 2.2vw, 32px);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  @include label-sans;
   color: var(--fg);
-  //margin-bottom: 18px;
-  //padding-bottom: 18px;
-  //border-bottom: 1px solid var(--rule);
-  font-size: clamp(18px, 2.4vw, 22px);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  //color: var(--fg-muted);
-  font-family: var(--sans);
   margin-bottom: 4px;
 }
 
@@ -188,7 +175,6 @@ onUnmounted(stop)
 .c-controls {
   margin-top: 56px;
   padding-top: 24px;
-  // border-top: 1px solid var(--rule);
   display: flex;
   align-items: center;
   justify-content: space-between;

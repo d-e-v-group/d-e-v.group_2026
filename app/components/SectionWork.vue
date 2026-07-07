@@ -143,8 +143,7 @@ watch([sorted, view], () => nextTick(markOverflow))
 /* ---------- Work ---------- */
 .work-section {
   padding: 120px 0;
-  //border-top: 1px solid var(--rule);
-  background: #f5f5f7;
+  background: var(--bg-alt);
 }
 
 .work-head {
@@ -275,8 +274,6 @@ watch([sorted, view], () => nextTick(markOverflow))
 
 .project-meta {
   padding-bottom: 16px;
-  // border-bottom: 1px solid var(--rule);
-  // margin-bottom: 24px;
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;

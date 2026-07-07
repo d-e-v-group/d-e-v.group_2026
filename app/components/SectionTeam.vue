@@ -45,8 +45,7 @@ import content from '~/assets/js/content.js'
 <style lang="scss">
 /* ---------- Team ---------- */
 .section#team {
-  background: #f5f5f7;
-
+  background: var(--bg-alt);
 }
 
 .team-grid {

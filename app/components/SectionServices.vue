@@ -84,7 +84,6 @@ const active = computed(() => content.services[activeIdx.value])
   .services-list {
     display: flex;
     flex-direction: column;
-    // border-right: 1px solid var(--rule);
     padding-right: 48px;
 
     @media (max-width: 900px) {
@@ -120,13 +119,7 @@ const active = computed(() => content.services[activeIdx.value])
     }
 
     .title {
-      font-size: clamp(18px, 2.4vw, 22px);
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      //color: var(--fg-muted);
-      font-family: var(--sans);
-
+      @include label-sans;
       transition: color 0.3s ease;
     }
 
@@ -194,13 +187,7 @@ const active = computed(() => content.services[activeIdx.value])
   }
 
   .detail-desc {
-    //padding-left: 20px;
-    font-size: 19px;
-    font-size: clamp(18px, 2.4vw, 22px);
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    // line-height: 1;
-    font-family: var(--sans);
+    @include label-sans;
     color: var(--fg);
     max-width: 38ch;
   }
