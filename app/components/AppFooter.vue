@@ -180,6 +180,7 @@ const socialIcons = {
   z-index: 2;
   background: var(--bg);
   color: var(--fg);
+  color: #0000FF;
   border-top: 1px solid var(--rule);
   padding: 80px 56px 30px;
   overflow: hidden;
@@ -208,6 +209,7 @@ const socialIcons = {
   display: inline-block;
   position: absolute;
   background-color: var(--fg);
+  background-color: #0000ff;
   -webkit-mask: var(--src) center / contain no-repeat;
   mask: var(--src) center / contain no-repeat;
   opacity: 0.82;
@@ -328,7 +330,7 @@ const socialIcons = {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--accent-ink);
+  // color: var(--accent-ink);
   margin-bottom: 26px;
 }
 
@@ -338,7 +340,7 @@ const socialIcons = {
   font-size: clamp(44px, 7vw, 90px);
   line-height: 0.92;
   letter-spacing: -0.03em;
-  color: var(--fg);
+  // color: var(--fg);
 }
 
 .footer-email {
@@ -348,9 +350,10 @@ const socialIcons = {
   gap: 12px;
   font-size: 15px;
   letter-spacing: 0.02em;
-  color: var(--fg);
+  // color: var(--fg);
   text-decoration: none;
   border: 1px solid var(--rule);
+  border: 1px solid #0000ff;
   border-radius: 999px;
   padding: 13px 22px;
   transition: border-color 0.25s ease;

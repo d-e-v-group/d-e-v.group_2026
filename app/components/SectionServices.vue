@@ -24,18 +24,18 @@ const active = computed(() => content.services[activeIdx.value])
                  shown stacked on mobile in place of the accordion. -->
             <div class="service-detail-inline">
               <div class="detail-meta">{{ s.meta }}</div>
-              <div v-if="s.icon" class="detail-icon">
+              <!-- <div v-if="s.icon" class="detail-icon">
                 <img :src="`/icons/${s.icon}.svg`" :alt="`${s.title} icon`" width="40" height="40" />
-              </div>
+              </div> -->
               <p class="detail-desc">{{ s.desc }}</p>
             </div>
           </div>
         </div>
         <div class="services-detail" :key="activeIdx">
           <div class="detail-meta">{{ active.meta }}</div>
-          <div v-if="active.icon" class="detail-icon">
+          <!-- <div v-if="active.icon" class="detail-icon">
             <img :src="`/icons/${active.icon}.svg`" :alt="`${active.title} icon`" width="40" height="40" />
-          </div>
+          </div> -->
           <p class="detail-desc">{{ active.desc }}</p>
         </div>
       </div>
@@ -84,7 +84,7 @@ const active = computed(() => content.services[activeIdx.value])
   .services-list {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid var(--rule);
+    // border-right: 1px solid var(--rule);
     padding-right: 48px;
 
     @media (max-width: 900px) {
@@ -125,6 +125,8 @@ const active = computed(() => content.services[activeIdx.value])
       letter-spacing: -0.02em;
       line-height: 1;
       //color: var(--fg-muted);
+      font-family: var(--sans);
+
       transition: color 0.3s ease;
     }
 
@@ -194,7 +196,11 @@ const active = computed(() => content.services[activeIdx.value])
   .detail-desc {
     //padding-left: 20px;
     font-size: 19px;
-    line-height: 1.45;
+    font-size: clamp(18px, 2.4vw, 22px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    // line-height: 1;
+    font-family: var(--sans);
     color: var(--fg);
     max-width: 38ch;
   }

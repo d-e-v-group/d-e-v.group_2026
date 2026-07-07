@@ -185,7 +185,7 @@ img {
 /* ---------- Section scaffold ---------- */
 .section {
   padding: 120px 0;
-  border-top: 1px solid var(--rule);
+  /* border-top: 1px solid var(--rule); */
 }
 .section-head {
   display: flex;
@@ -221,9 +221,10 @@ img {
   color: var(--accent-ink);
 }
 .section-title {
-  /* font-family: var(--serif); */
-  font-size: clamp(18px, 5vw, 26px);
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-size: clamp(36px, 7vw, 64px);
   font-weight: 100;
+  font-family: var(--serif);
   letter-spacing: -0.02em;
   line-height: 0.95;
 }

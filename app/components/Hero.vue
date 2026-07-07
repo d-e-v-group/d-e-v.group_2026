@@ -9,7 +9,7 @@ import content from '~/assets/js/content.js'
       <h1 class="hero-display">{{ content.brand.headline }}</h1>
       <p class="hero-sub">{{ content.brand.pitch }}</p>
     </div>
-    <Marquee />
+    <!-- <Marquee /> -->
   </section>
 </template>
 

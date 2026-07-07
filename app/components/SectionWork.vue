@@ -143,7 +143,8 @@ watch([sorted, view], () => nextTick(markOverflow))
 /* ---------- Work ---------- */
 .work-section {
   padding: 120px 0;
-  border-top: 1px solid var(--rule);
+  //border-top: 1px solid var(--rule);
+  background: #f5f5f7;
 }
 
 .work-head {
@@ -151,7 +152,7 @@ watch([sorted, view], () => nextTick(markOverflow))
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  margin-bottom: 56px;
+  margin-bottom: 60px;
 
   .section-quote {
     margin-top: 0;
@@ -223,7 +224,7 @@ watch([sorted, view], () => nextTick(markOverflow))
 .project {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 32px;
+  gap: 64px;
   align-items: start;
 
   &:nth-child(even) .project-media {
@@ -274,8 +275,8 @@ watch([sorted, view], () => nextTick(markOverflow))
 
 .project-meta {
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 24px;
+  // border-bottom: 1px solid var(--rule);
+  // margin-bottom: 24px;
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;

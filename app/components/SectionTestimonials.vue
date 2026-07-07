@@ -28,10 +28,10 @@ onUnmounted(stop)
       </div>
 
       <div class="carousel reveal" @mouseenter="stop" @mouseleave="start">
-        <span class="c-mark" aria-hidden="true">“</span>
+        <!-- <span class="c-mark" aria-hidden="true">“</span> -->
         <div class="c-stage">
           <figure v-for="(t, i) in items" :key="t.name" class="c-slide" :class="{ 'is-active': i === cur }">
-            <blockquote class="c-quote">{{ t.quote }}</blockquote>
+            <blockquote class="c-quote">“{{ t.quote }}”</blockquote>
             <div class="asym-meta">
               <div class="asym-client">{{ t.client }}</div>
               <span class="asym-name">{{ t.name }}</span>
@@ -157,6 +157,13 @@ onUnmounted(stop)
   //margin-bottom: 18px;
   //padding-bottom: 18px;
   //border-bottom: 1px solid var(--rule);
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  //color: var(--fg-muted);
+  font-family: var(--sans);
+  margin-bottom: 4px;
 }
 
 .asym-name {
@@ -181,7 +188,7 @@ onUnmounted(stop)
 .c-controls {
   margin-top: 56px;
   padding-top: 24px;
-  border-top: 1px solid var(--rule);
+  // border-top: 1px solid var(--rule);
   display: flex;
   align-items: center;
   justify-content: space-between;
