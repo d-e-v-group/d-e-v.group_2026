@@ -81,7 +81,7 @@ watch([sorted, view], () => nextTick(markOverflow))
         <div class="work-toggle" role="tablist" aria-label="Work view">
           <button role="tab" :aria-selected="view === 'featured'" @click="view = 'featured'">Featured</button>
           <button role="tab" :aria-selected="view === 'all'" @click="view = 'all'">All <span class="ct">{{ all.length
-              }}</span></button>
+          }}</span></button>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ watch([sorted, view], () => nextTick(markOverflow))
             <img v-else :src="p.image" :alt="p.title" />
           </div>
           <div class="project-body">
-            <div class="project-meta">{{ p.title }}</div>
+            <!-- <div class="project-meta">{{ p.title }}</div> -->
             <h3 class="project-title">{{ p.client }}</h3>
             <p>{{ p.body }}</p>
             <div class="project-stack">
@@ -117,7 +117,7 @@ watch([sorted, view], () => nextTick(markOverflow))
             <span class="h static">Description</span>
             <button class="h" :class="{ sorted: sort.key === 'discipline' }"
               @click="setSort('discipline', 'text')">Discipline<span class="sort">{{ arrow('discipline')
-                }}</span></button>
+              }}</span></button>
             <button class="h" :class="{ sorted: sort.key === 'partner' }"
               @click="setSort('partner', 'text')">Partner<span class="sort">{{ arrow('partner') }}</span></button>
             <button class="h r" :class="{ sorted: sort.key === 'year' }" @click="setSort('year', 'num')">Year<span
