@@ -71,13 +71,13 @@ import content from '~/assets/js/content.js'
 
 .team-photo {
   flex: 0 0 auto;
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 150px;
   background: var(--bg-alt);
   border: 1px solid var(--rule);
   position: relative;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 15px;
 
   img {
     position: absolute;

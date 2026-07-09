@@ -190,7 +190,7 @@ watch([sorted, view], () => nextTick(markOverflow))
     }
 
     &[aria-selected="true"] {
-      background: var(--bg-alt);
+      background: var(--bg);
       color: var(--fg);
     }
   }
@@ -308,9 +308,9 @@ watch([sorted, view], () => nextTick(markOverflow))
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 6px 10px;
-  color: var(--fg-muted);
-  border-radius: 0;
-  background: var(--bg-alt);
+  color: var(--fg);
+  border-radius: 10px;
+  background: var(--bg);
 }
 
 /* All list */
