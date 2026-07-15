@@ -18,7 +18,16 @@ const active = computed(() => content.services[activeIdx.value])
             <button :class="['service-row', { active: activeIdx === i }]" @mouseenter="activeIdx = i"
               @focus="activeIdx = i" @click="activeIdx = i">
               <div class="title">{{ s.title }}</div>
-              <div class="arrow">{{ activeIdx === i ? '●' : '→' }}</div>
+              <div class="arrow">
+
+                <!-- {{ activeIdx === i ? '●' : '→' }} -->
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 21 37" fill="none">
+                  <path
+                    d="M20.1777 20.1777C21.154 19.2014 21.154 17.6185 20.1777 16.6421L4.26778 0.732241C3.29147 -0.244069 1.70855 -0.244069 0.732244 0.732241C-0.244067 1.70855 -0.244067 3.29146 0.732244 4.26778L14.8744 18.4099L0.732241 32.552C-0.244069 33.5284 -0.24407 35.1113 0.732241 36.0876C1.70855 37.0639 3.29146 37.0639 4.26777 36.0876L20.1777 20.1777ZM16.9099 18.4099L16.9099 20.9099L18.4099 20.9099L18.4099 18.4099L18.4099 15.9099L16.9099 15.9099L16.9099 18.4099Z"
+                    fill="#E3E3E0" />
+                </svg>
+              </div>
             </button>
             <!-- Always rendered; hidden on desktop (side panel drives hover),
                  shown stacked on mobile in place of the accordion. -->
@@ -131,10 +140,22 @@ const active = computed(() => content.services[activeIdx.value])
       font-size: 14px;
       color: var(--fg-faint);
       transition: color 0.3s ease, transform 0.3s ease;
+
+      svg {
+        display: block;
+      }
+
+      svg * {
+        fill: var(--fg-faint);
+      }
     }
 
     &.active .arrow {
       color: var(--accent-ink);
+
+      svg * {
+        fill: var(--accent-ink);
+      }
     }
 
     &:hover .arrow {
