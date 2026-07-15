@@ -188,6 +188,7 @@ const active = computed(() => content.services[activeIdx.value])
 
   .detail-desc {
     @include label-sans;
+    line-height: 1.3;
     color: var(--fg);
     max-width: 38ch;
   }
