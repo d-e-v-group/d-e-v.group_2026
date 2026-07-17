@@ -10,7 +10,7 @@ const editMode = ref(false)
 const url = useRuntimeConfig().public.siteUrl
 const title = `${content.brand.name} — Technical Direction & Development`
 const description = content.brand.pitch
-const ogImage = `${url}/og-image.jpg`
+const ogImage = `${url}/og-image.jpg?v=42069`
 
 useSeoMeta({
   title,
