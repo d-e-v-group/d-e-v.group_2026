@@ -132,6 +132,7 @@ onUnmounted(stop)
   text-wrap: balance;
   font-size: clamp(26px, 3.1vw, 42px);
   line-height: 1.22;
+  text-indent: -0.35em;
 }
 
 .asym-meta {
