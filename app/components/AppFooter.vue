@@ -1,6 +1,8 @@
 <script setup>
 import content from '~/assets/js/content.js'
 
+const { trackEvent } = useAnalytics()
+
 /* Live UTC year for the copyright line */
 const now = ref(new Date())
 let timer = null
@@ -57,6 +59,8 @@ onMounted(() => {
     topF: parseFloat(s.top) / 100,
     leftF: parseFloat(s.left) / 100,
     size: s.size,
+    icon: s.icon,
+    wasPushing: false,
   }))
 
   const cursor = { x: -9999, y: -9999 }
@@ -93,6 +97,11 @@ onMounted(() => {
           st.tx = 0; st.ty = 0
         }
 
+        if (pushing && !st.wasPushing) {
+          trackEvent('footer_scatter_repel', { icon: st.icon })
+        }
+        st.wasPushing = pushing
+
         const lerp = pushing ? PUSH_LERP : RETURN_LERP
         st.ox += (st.tx - st.ox) * lerp
         st.oy += (st.ty - st.oy) * lerp
@@ -126,7 +135,7 @@ const socialIcons = {
 </script>
 
 <template>
-  <footer class="footer-v2">
+  <footer class="footer-v2" data-track-section="footer">
     <!-- Scattered retro icons, filled flat with --fg to match the hero icons (mask over solid fg) -->
     <div ref="scatterEl" class="footer-scatter" aria-hidden="true">
       <span v-for="(s, i) in scatter" :key="s.icon" :ref="el => setIconRef(el, i)" class="holo-icon"

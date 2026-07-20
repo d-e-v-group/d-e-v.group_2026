@@ -20,7 +20,7 @@ onUnmounted(stop)
 </script>
 
 <template>
-  <section class="section testimonials" id="testimonials">
+  <section class="section testimonials" id="testimonials" data-track-section="testimonials">
     <div class="page">
       <div class="section-head">
         <h2 class="section-title">{{ content.sections.testimonials }}</h2>

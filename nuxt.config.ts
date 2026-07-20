@@ -70,6 +70,15 @@ export default defineNuxtConfig({
             `(function(){var d=document,r=function(){var c=d.documentElement.classList;c.remove('fonts-loading');c.add('fonts-loaded');};if(d.fonts&&d.fonts.load){Promise.all([d.fonts.load("300 1em 'ABC Diatype'"),d.fonts.load("500 1em 'ABC Diatype'"),d.fonts.load("300 1em 'ITC Garamond Std'"),d.fonts.load("400 1em 'ITC Garamond Std'")]).then(r).catch(r);setTimeout(r,1200);}else{r();}})();`,
           tagPosition: 'head',
         },
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-VXHED8DV26',
+          async: true,
+        },
+        {
+          innerHTML:
+            `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-VXHED8DV26');`,
+          tagPosition: 'head',
+        },
       ],
     },
   },

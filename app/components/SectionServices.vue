@@ -6,7 +6,7 @@ const active = computed(() => content.services[activeIdx.value])
 </script>
 
 <template>
-  <section class="section services-section" id="services">
+  <section class="section services-section" id="services" data-track-section="services">
     <div class="page">
       <div class="section-head">
         <h2 class="section-title">{{ content.sections.services }}</h2>

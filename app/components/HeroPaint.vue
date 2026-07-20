@@ -1,5 +1,6 @@
 <script setup>
 const canvas = ref(null)
+const { trackEvent } = useAnalytics()
 
 onMounted(() => {
   const presets = [
@@ -139,6 +140,7 @@ onMounted(() => {
     presetIndex = (presetIndex + 1) % presets.length
     Object.assign(cfg, presets[presetIndex])
     clearFrames = 45
+    trackEvent('hero_preset_change', { preset_index: presetIndex })
   }
 
   const onPointerUp = (e) => {

@@ -3,7 +3,7 @@ import content from '~/assets/js/content.js'
 </script>
 
 <template>
-  <section class="hero">
+  <section class="hero" data-track-section="hero">
     <HeroPaint />
     <div class="hero-grid">
       <h1 class="hero-display">{{ content.brand.headline }}</h1>

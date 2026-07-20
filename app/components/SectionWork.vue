@@ -73,7 +73,7 @@ watch([sorted, view], () => nextTick(markOverflow))
 </script>
 
 <template>
-  <section class="work-section" id="work">
+  <section class="work-section" id="work" data-track-section="work">
     <div class="page">
       <div class="work-head">
         <h2 class="section-title">{{ content.sections.work }}</h2>

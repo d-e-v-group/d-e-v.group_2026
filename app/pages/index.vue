@@ -127,6 +127,7 @@ onMounted(() => {
 })
 
 useReveal()
+useSectionTracking()
 </script>
 
 <template>
@@ -137,5 +138,4 @@ useReveal()
   <SectionTestimonials />
   <SectionTeam />
   <AppFooter />
-  <Tweaks :edit-mode="editMode" />
 </template>

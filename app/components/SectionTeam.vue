@@ -3,7 +3,7 @@ import content from '~/assets/js/content.js'
 </script>
 
 <template>
-  <section class="section" id="team">
+  <section class="section" id="team" data-track-section="team">
     <div class="page">
       <div class="section-head">
         <h2 class="section-title">{{ content.sections.team }}</h2>
