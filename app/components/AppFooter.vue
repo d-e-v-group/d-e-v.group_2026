@@ -204,6 +204,8 @@ const socialIcons = {
   inset: 0;
   pointer-events: none;
   z-index: 0;
+  max-width: 1440px;
+  margin: 0 auto;
 
   @media (max-width: 900px) {
     opacity: 0.3;
