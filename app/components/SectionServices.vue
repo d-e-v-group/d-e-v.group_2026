@@ -83,10 +83,6 @@ const active = computed(() => content.services[activeIdx.value])
       .arrow {
         display: none;
       }
-
-      &:hover {
-        padding-left: 0;
-      }
     }
   }
 
@@ -123,8 +119,10 @@ const active = computed(() => content.services[activeIdx.value])
     width: 100%;
     transition: padding 0.3s ease;
 
-    &:hover {
-      padding-left: 16px;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        padding-left: 16px;
+      }
     }
 
     .title {
@@ -158,14 +156,16 @@ const active = computed(() => content.services[activeIdx.value])
       }
     }
 
-    &:hover .arrow {
-      color: var(--fg);
-      transform: translateX(4px);
-    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover .arrow {
+        color: var(--fg);
+        transform: translateX(4px);
+      }
 
-    &.active:hover .arrow {
-      transform: none;
-      color: var(--accent-ink);
+      &.active:hover .arrow {
+        transform: none;
+        color: var(--accent-ink);
+      }
     }
   }
 }
