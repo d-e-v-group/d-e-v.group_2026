@@ -209,10 +209,8 @@ const socialIcons = {
 
   @media (max-width: 900px) {
     opacity: 0.3;
-    transform: translateX(-10%);
-
+    transform: translateX(0%) scale(0.7);
   }
-
 }
 
 .holo-icon {
