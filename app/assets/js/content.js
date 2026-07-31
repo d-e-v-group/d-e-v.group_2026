@@ -167,7 +167,7 @@ export default {
       role: "Platform • CRM",
       body: "A unified platform combining content, commerce, and event infrastructure to support a global audience and professional certification programs. The experience enables seamless discovery across a large media library while facilitating registration for both virtual and in-person events. Development Group engineered custom cloud-based logic to intelligently deconstruct group purchases into individual attendee records, ensuring accurate downstream synchronization with HubSpot CRM.",
       stack: [
-        "Decoupled architecture (React / Next.js)",
+        "Decoupled architecture (Vue / Nuxt.js)",
         "Headless CMS powering multi-format content delivery",
         "Custom Shopify storefront integration",
         "Scalable registration system",
